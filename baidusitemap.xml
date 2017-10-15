@@ -5,14 +5,19 @@
     
   <url>
     <loc>http://yoursite.com/2017/10/15/factory/</loc>
-    <lastmod>2017-10-15T14:15:44.403Z</lastmod>
+    <lastmod>2017-10-15T14:20:48.543Z</lastmod>
     <data>
         <display>
-        <title></title>
-        <pubTime>2017-10-15T14:15:44.403Z</pubTime>
+        <title>factory</title>
+        <pubTime>2017-10-15T14:18:58.000Z</pubTime>
         
+        <tag>java</tag>
+         
          
            
+             
+              <breadCrumb title="设计" url="http://yoursite.com/categories/%E8%AE%BE%E8%AE%A1/"/>
+          
         </display>
     </data>
     </url>
@@ -20,11 +25,11 @@
     
   <url>
     <loc>http://yoursite.com/2017/10/15/hello-world/</loc>
-    <lastmod>2017-10-15T13:31:03.770Z</lastmod>
+    <lastmod>2017-10-15T14:20:09.735Z</lastmod>
     <data>
         <display>
         <title>测试文章</title>
-        <pubTime>2017-10-15T13:31:03.770Z</pubTime>
+        <pubTime>2017-10-15T14:20:09.735Z</pubTime>
         
          
            
