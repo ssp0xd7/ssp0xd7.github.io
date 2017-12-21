@@ -24,12 +24,14 @@
 <meta property="og:url" content="https://ssp0xd7.github.io/2017/10/15/factory/index.html">
 <meta property="og:site_name" content="Kevin&#39;s Blog">
 <meta property="og:description" content="工厂模式（Factory Pattern）Java 中最常用的设计模式之一，它提供了一种创建对象的最佳方式。在工厂模式中，我们在创建对象时不会对客户端暴露创建逻辑，并且是通过使用一个共同的接口来指向新创建的对象。 关键逻辑： 通过接口创建具体产品，创建过程在其子类或者实现类执行。 优点：   一个调用者想创建一个对象，只要知道其名称就可以了。  扩展性高，如果想增加一个产品，只要扩展一个工厂类就可">
-<meta property="og:updated_time" content="2017-10-17T14:02:48.445Z">
+<meta property="og:updated_time" content="2017-12-21T11:21:56.530Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="factory">
 <meta name="twitter:description" content="工厂模式（Factory Pattern）Java 中最常用的设计模式之一，它提供了一种创建对象的最佳方式。在工厂模式中，我们在创建对象时不会对客户端暴露创建逻辑，并且是通过使用一个共同的接口来指向新创建的对象。 关键逻辑： 通过接口创建具体产品，创建过程在其子类或者实现类执行。 优点：   一个调用者想创建一个对象，只要知道其名称就可以了。  扩展性高，如果想增加一个产品，只要扩展一个工厂类就可">
   <!-- Canonical links -->
   <link rel="canonical" href="https://ssp0xd7.github.io/2017/10/15/factory/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="Kevin&#39;s Blog" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png" type="image/x-icon">
@@ -39,6 +41,8 @@
   <link rel="stylesheet" href="/css/style.css">
   
     
+    
+        <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
     
 
 </head>
@@ -52,11 +56,11 @@
       
       <div class="profile-block text-center">
         <a id="avatar" href="https://github.com/ssp0xd7" target="_blank">
-          <img class="thumb-xl img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
         </a>
-        <h2 id="name" class="hidden-xs hidden-sm">kevin</h2>
-        <h3 id="title" class="hidden-xs hidden-sm hidden-md">I am everyone.</h3>
-        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="fa fa-map-marker"></i> Hangzhou, China</small>
+        <h2 id="name" class="hidden-xs hidden-sm">KEVIN</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Love &amp; Life &amp; Code</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="fa fa-map-marker"></i> HangZhou, China</small>
       </div>
       
       <div class="search" id="search-form-wrap">
@@ -65,23 +69,24 @@
         <div class="input-group">
             <input type="text" class="search-form-input form-control" placeholder="Search" />
             <span class="input-group-btn">
-                <button type="submit" class="search-form-submit btn btn-flat"><i class="fa fa-search"></i></button>
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="fa fa-search"></i></button>
             </span>
         </div>
     </form>
     <div class="ins-search">
-    <div class="ins-search-mask"></div>
-    <div class="ins-search-container">
-        <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..." x-webkit-speech />
-            <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-            <!-- <span class="ins-close ins-selectable"><i class="fa fa-times"></i></span> -->
-        </div>
-        <div class="ins-section-wrapper">
-            <div class="ins-section-container"></div>
-        </div>
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="Type something..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      <!-- <span class="ins-close ins-selectable"><i class="fa fa-times"></i></span> -->
     </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
 </div>
+
 
 </div>
       <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
@@ -165,13 +170,15 @@
 	
     <ul class="social-links">
     	
-        <li><a href="https://github.com/ssp0xd7" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="fa fa-github"></i></a></li>
+        <li><a href="https://github.com/ssp0xd7" target="_blank" title="Github" ><i class="fa fa-github"></i></a></li>
         
-        <li><a href="/" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="fa fa-weibo"></i></a></li>
+        <li><a href="http://weibo.com/cofess" target="_blank" title="Weibo" ><i class="fa fa-weibo"></i></a></li>
         
-        <li><a href="/" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="fa fa-twitter"></i></a></li>
+        <li><a href="https://twitter.com/iwebued" target="_blank" title="Twitter" ><i class="fa fa-twitter"></i></a></li>
         
-        <li><a href="/" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="fa fa-behance"></i></a></li>
+        <li><a href="/" target="_blank" title="Facebook" ><i class="fa fa-facebook"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" ><i class="fa fa-rss"></i></a></li>
         
     </ul>
 
@@ -231,7 +238,7 @@
   <div class="widget">
     <h3 class="widget-title">Archive</h3>
     <div class="widget-body">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -243,6 +250,21 @@
     <div class="widget-body">
       <ul class="recent-post-list list-unstyled no-thumbnail">
         
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2017/12/21/test/" class="title">test</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2017-12-21T11:24:50.000Z" itemprop="datePublished">2017-12-21</time>
+              </p>
+            </div>
+          </li>
+          
           <li>
             
             <div class="item-inner">
@@ -284,6 +306,15 @@
 
   
   
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <nav id="toc" class="article-toc">
+      <h3 class="toc-title">Catalogue</h3>
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#工厂模式（Factory-Pattern）"><span class="toc-number">1.</span> <span class="toc-text">工厂模式（Factory Pattern）</span></a></li></ol>
+    </nav>
+  </div>
+</aside>
+
 <main class="main" role="main">
   <div class="content">
   <article id="post-factory" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
@@ -322,7 +353,7 @@
 	<span class="article-read hidden-xs">
 	    <i class="fa fa-eye" aria-hidden="true"></i>
 	    <span id="busuanzi_container_page_pv">
-			阅读<span id="busuanzi_value_page_pv">0</span>次
+			<span id="busuanzi_value_page_pv">0</span>
 		</span>
 	</span>
 
@@ -330,12 +361,19 @@
         <span class="post-comment"><i class="fa fa-commenting-o"></i> <a href="/2017/10/15/factory/#comments" class="article-comment-link">Comments</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 497(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 497(words)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 2(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 2(minutes)</span>
 	
 
+      </div>
+      
+      <div class="toggle-toc hidden-xs" data-stick-top>
+        <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false" title="Catalogue" role="button">
+          <i class="text-collapsed fa fa-anchor"></i>
+          <i class="text-in fa fa-close"></i>
+        </a>
       </div>
       
     </div>
@@ -380,8 +418,8 @@
         </a>
       </div>
       <div class="media-body">
-        <h3 class="media-heading"><a href="https://github.com/ssp0xd7" target="_blank"><span class="text-dark">kevin</span><small class="ml-1x">I am everyone.</small></a></h3>
-        <div>这里是自我简介，哇偶~</div>
+        <h3 class="media-heading"><a href="https://github.com/ssp0xd7" target="_blank"><span class="text-dark">KEVIN</span><small class="ml-1x">Love &amp; Life &amp; Code</small></a></h3>
+        <div>爱唱歌、爱摄影、爱玩魔方、爱创造。</div>
       </div>
     </figure>
   </div>
@@ -395,8 +433,9 @@
   <section id="comments">
   	
        
-    <div id="uyan_frame"></div>
 
+
+    
     
   </section>
 
@@ -420,10 +459,6 @@
   <!-- Button trigger modal -->
   <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning hidden-xs" data-toggle="modal" data-target="#donateModal"><span>$</span></button>
   
-  
-  <div class="bar-right">
-    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
-  </div>
   
   </div>
 </nav>
@@ -457,7 +492,7 @@
             </div>
           </div>
           <div class="text-grey">
-            <p>Open<span id="donate-pay_txt">alipay</span>Scan this qrcode, you can sweep yards reward oh!</p>
+            <p>Scan this qrcode, you can sweep yards reward oh!</p>
           </div>
         </div>
       </div>
@@ -474,13 +509,15 @@
 	
     <ul class="social-links">
     	
-        <li><a href="https://github.com/ssp0xd7" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="fa fa-github"></i></a></li>
+        <li><a href="https://github.com/ssp0xd7" target="_blank" title="Github" ><i class="fa fa-github"></i></a></li>
         
-        <li><a href="/" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="fa fa-weibo"></i></a></li>
+        <li><a href="http://weibo.com/cofess" target="_blank" title="Weibo" ><i class="fa fa-weibo"></i></a></li>
         
-        <li><a href="/" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="fa fa-twitter"></i></a></li>
+        <li><a href="https://twitter.com/iwebued" target="_blank" title="Twitter" ><i class="fa fa-twitter"></i></a></li>
         
-        <li><a href="/" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="fa fa-behance"></i></a></li>
+        <li><a href="/" target="_blank" title="Facebook" ><i class="fa fa-facebook"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" ><i class="fa fa-rss"></i></a></li>
         
     </ul>
 
@@ -489,7 +526,7 @@
         &copy; 2017 kevin_mit
         
         <div class="publishby">
-        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        	Theme by cofess base on pure.
         </div>
     </div>
 </footer>
@@ -522,6 +559,7 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 <script src="/js/insight.js"></script>
     
     
+    
         
 <script defer src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
@@ -531,8 +569,24 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
     
         
     
-    <script defer type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=[object Object]"></script>
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  // id默认为当前页面url，如果url后带参数或锚点，gitment要重新初始化
+  // https://github.com/imsun/gitment/issues/55
+  // 解决方案：id:window.location.pathname,或者将id设置为当前页面标题
+  id: 'factory', 
+  owner: 'ssp0xd7', // 可以是你的GitHub用户名，也可以是github id
+  repo: 'githubio-comments',
+  oauth: {
+    client_id: '433ededfd38c7605b879',
+    client_secret: '8ee504f2d4e34e3827e5e4893353259d469300e6',
+  }
+})
+gitment.render('comments')
+</script>
 
+    
 
     
     
