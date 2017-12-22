@@ -17,18 +17,18 @@
   
   
   <title>MongoDB基础篇（一） | kevin_mit</title>
-  <meta name="description" content="1.概念与简介简介：MongoDB 是由C++语言编写的，是一个基于分布式文件存储的开源数据库系统。在高负载的情况下，添加更多的节点，可以保证服务器性能。MongoDB 旨在为WEB应用提供可扩展的高性能数据存储解决方案。MongoDB 将数据存储为一个文档，数据结构由键值(key=&amp;gt;value)对组成。MongoDB 文档类似于 JSON 对象。字段值可以包含其他文档，数组及文档数组。 概">
+  <meta name="description" content="概念与简介简介：MongoDB 是由C++语言编写的，是一个基于分布式文件存储的开源数据库系统。在高负载的情况下，添加更多的节点，可以保证服务器性能。MongoDB 旨在为WEB应用提供可扩展的高性能数据存储解决方案。MongoDB 将数据存储为一个文档，数据结构由键值(key=&amp;gt;value)对组成。MongoDB 文档类似于 JSON 对象。字段值可以包含其他文档，数组及文档数组。 概念：">
 <meta name="keywords" content="NoSQL">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MongoDB基础篇（一）">
 <meta property="og:url" content="https://ssp0xd7.github.io/2017/12/22/mongo_1/index.html">
 <meta property="og:site_name" content="Kevin&#39;s Blog">
-<meta property="og:description" content="1.概念与简介简介：MongoDB 是由C++语言编写的，是一个基于分布式文件存储的开源数据库系统。在高负载的情况下，添加更多的节点，可以保证服务器性能。MongoDB 旨在为WEB应用提供可扩展的高性能数据存储解决方案。MongoDB 将数据存储为一个文档，数据结构由键值(key=&amp;gt;value)对组成。MongoDB 文档类似于 JSON 对象。字段值可以包含其他文档，数组及文档数组。 概">
+<meta property="og:description" content="概念与简介简介：MongoDB 是由C++语言编写的，是一个基于分布式文件存储的开源数据库系统。在高负载的情况下，添加更多的节点，可以保证服务器性能。MongoDB 旨在为WEB应用提供可扩展的高性能数据存储解决方案。MongoDB 将数据存储为一个文档，数据结构由键值(key=&amp;gt;value)对组成。MongoDB 文档类似于 JSON 对象。字段值可以包含其他文档，数组及文档数组。 概念：">
 <meta property="og:image" content="http://www.runoob.com/wp-content/uploads/2013/10/crud-annotated-document.png">
-<meta property="og:updated_time" content="2017-12-21T16:56:59.427Z">
+<meta property="og:updated_time" content="2017-12-22T12:11:38.207Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MongoDB基础篇（一）">
-<meta name="twitter:description" content="1.概念与简介简介：MongoDB 是由C++语言编写的，是一个基于分布式文件存储的开源数据库系统。在高负载的情况下，添加更多的节点，可以保证服务器性能。MongoDB 旨在为WEB应用提供可扩展的高性能数据存储解决方案。MongoDB 将数据存储为一个文档，数据结构由键值(key=&amp;gt;value)对组成。MongoDB 文档类似于 JSON 对象。字段值可以包含其他文档，数组及文档数组。 概">
+<meta name="twitter:description" content="概念与简介简介：MongoDB 是由C++语言编写的，是一个基于分布式文件存储的开源数据库系统。在高负载的情况下，添加更多的节点，可以保证服务器性能。MongoDB 旨在为WEB应用提供可扩展的高性能数据存储解决方案。MongoDB 将数据存储为一个文档，数据结构由键值(key=&amp;gt;value)对组成。MongoDB 文档类似于 JSON 对象。字段值可以包含其他文档，数组及文档数组。 概念：">
 <meta name="twitter:image" content="http://www.runoob.com/wp-content/uploads/2013/10/crud-annotated-document.png">
   <!-- Canonical links -->
   <link rel="canonical" href="https://ssp0xd7.github.io/2017/12/22/mongo_1/index.html">
@@ -69,7 +69,7 @@
 
     <form class="search-form sidebar-form">
         <div class="input-group">
-            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
             <span class="input-group-btn">
                 <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="fa fa-search"></i></button>
             </span>
@@ -79,7 +79,7 @@
   <div class="ins-search-mask"></div>
   <div class="ins-search-container">
     <div class="ins-input-wrapper">
-      <input type="text" class="ins-search-input" placeholder="Type something..." x-webkit-speech />
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
       <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
       <!-- <span class="ins-close ins-selectable"><i class="fa fa-times"></i></span> -->
     </div>
@@ -106,7 +106,7 @@
         <li class="menu-item menu-item-home">
           <a href="/.">
             
-            <span class="menu-title">Home</span>
+            <span class="menu-title">首页</span>
           </a>
         </li>
         
@@ -115,7 +115,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives">
             
-            <span class="menu-title">Archives</span>
+            <span class="menu-title">归档</span>
           </a>
         </li>
         
@@ -124,7 +124,7 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories">
             
-            <span class="menu-title">Categories</span>
+            <span class="menu-title">分类</span>
           </a>
         </li>
         
@@ -133,16 +133,16 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags">
             
-            <span class="menu-title">Tags</span>
+            <span class="menu-title">标签</span>
           </a>
         </li>
         
         
         
-        <li class="menu-item menu-item-repository">
+        <li class="menu-item menu-item-repository active">
           <a href="/repository">
             
-            <span class="menu-title">Repository</span>
+            <span class="menu-title">项目</span>
           </a>
         </li>
         
@@ -151,7 +151,7 @@
         <li class="menu-item menu-item-about">
           <a href="/about">
             
-            <span class="menu-title">About</span>
+            <span class="menu-title">关于</span>
           </a>
         </li>
         
@@ -181,7 +181,7 @@
   <div class="slimContent">
     
       <div class="widget">
-    <h3 class="widget-title">Board</h3>
+    <h3 class="widget-title">公告</h3>
     <div class="widget-body">
         <div id="board">
             
@@ -197,7 +197,7 @@
     
       
   <div class="widget">
-    <h3 class="widget-title">Categories</h3>
+    <h3 class="widget-title">分类</h3>
     <div class="widget-body">
       <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/">数据库</a><span class="category-list-count">1</span></li></ul>
     </div>
@@ -207,7 +207,7 @@
     
       
   <div class="widget">
-    <h3 class="widget-title">Tags</h3>
+    <h3 class="widget-title">标签</h3>
     <div class="widget-body">
       <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/NoSQL/">NoSQL</a><span class="tag-list-count">1</span></li></ul>
     </div>
@@ -217,7 +217,7 @@
     
       
   <div class="widget">
-    <h3 class="widget-title">Tag Cloud</h3>
+    <h3 class="widget-title">标签云</h3>
     <div class="widget-body tagcloud">
       <a href="/tags/NoSQL/" style="font-size: 13px;">NoSQL</a>
     </div>
@@ -226,7 +226,7 @@
     
       
   <div class="widget">
-    <h3 class="widget-title">Archive</h3>
+    <h3 class="widget-title">归档</h3>
     <div class="widget-body">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">1</span></li></ul>
     </div>
@@ -236,7 +236,7 @@
     
       
   <div class="widget">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">最新文章</h3>
     <div class="widget-body">
       <ul class="recent-post-list list-unstyled no-thumbnail">
         
@@ -269,8 +269,8 @@
 <aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
   <div class="slimContent">
     <nav id="toc" class="article-toc">
-      <h3 class="toc-title">Catalogue</h3>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-概念与简介"><span class="toc-number">1.</span> <span class="toc-text">1.概念与简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#简介："><span class="toc-number">1.1.</span> <span class="toc-text">简介：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#概念："><span class="toc-number">1.2.</span> <span class="toc-text">概念：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#特点："><span class="toc-number">1.3.</span> <span class="toc-text">特点：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常用工具："><span class="toc-number">1.4.</span> <span class="toc-text">常用工具：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-安装及运行"><span class="toc-number">2.</span> <span class="toc-text">2.安装及运行</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#curl安装："><span class="toc-number">2.1.</span> <span class="toc-text">curl安装：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#brew安装（推荐）："><span class="toc-number">2.2.</span> <span class="toc-text">brew安装（推荐）：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#运行："><span class="toc-number">2.3.</span> <span class="toc-text">运行：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-基础操作"><span class="toc-number">3.</span> <span class="toc-text">3.基础操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#连接："><span class="toc-number">3.1.</span> <span class="toc-text">连接：</span></a></li></ol></li></ol>
+      <h3 class="toc-title">文章目录</h3>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概念与简介"><span class="toc-number">1.</span> <span class="toc-text">概念与简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#简介："><span class="toc-number">1.1.</span> <span class="toc-text">简介：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#概念："><span class="toc-number">1.2.</span> <span class="toc-text">概念：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#特点："><span class="toc-number">1.3.</span> <span class="toc-text">特点：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常用工具："><span class="toc-number">1.4.</span> <span class="toc-text">常用工具：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装及运行"><span class="toc-number">2.</span> <span class="toc-text">安装及运行</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#curl安装："><span class="toc-number">2.1.</span> <span class="toc-text">curl安装：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#brew安装（推荐）："><span class="toc-number">2.2.</span> <span class="toc-text">brew安装（推荐）：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#运行："><span class="toc-number">2.3.</span> <span class="toc-text">运行：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基础操作"><span class="toc-number">3.</span> <span class="toc-text">基础操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#连接："><span class="toc-number">3.1.</span> <span class="toc-text">连接：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据库："><span class="toc-number">3.2.</span> <span class="toc-text">数据库：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#创建数据库："><span class="toc-number">3.2.1.</span> <span class="toc-text">创建数据库：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#查看所有数据库："><span class="toc-number">3.2.2.</span> <span class="toc-text">查看所有数据库：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#删除数据库："><span class="toc-number">3.2.3.</span> <span class="toc-text">删除数据库：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#查看所有集合："><span class="toc-number">3.2.4.</span> <span class="toc-text">查看所有集合：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#删除集合："><span class="toc-number">3.2.5.</span> <span class="toc-text">删除集合：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文档："><span class="toc-number">3.3.</span> <span class="toc-text">文档：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#插入文档："><span class="toc-number">3.3.1.</span> <span class="toc-text">插入文档：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#更新文档："><span class="toc-number">3.3.2.</span> <span class="toc-text">更新文档：</span></a></li></ol></li></ol></li></ol>
     </nav>
   </div>
 </aside>
@@ -318,19 +318,19 @@
 	</span>
 
 
-        <span class="post-comment"><i class="fa fa-commenting-o"></i> <a href="/2017/12/22/mongo_1/#comments" class="article-comment-link">Comments</a></span>
+        <span class="post-comment"><i class="fa fa-commenting-o"></i> <a href="/2017/12/22/mongo_1/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 1,103(words)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1,485(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 4(minutes)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 6(分)</span>
 	
 
       </div>
       
       <div class="toggle-toc hidden-xs" data-stick-top>
-        <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false" title="Catalogue" role="button">
+        <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false" title="文章目录" role="button">
           <i class="text-collapsed fa fa-anchor"></i>
           <i class="text-in fa fa-close"></i>
         </a>
@@ -339,7 +339,7 @@
     </div>
     <div class="article-entry markdown-body" itemprop="articleBody">
       
-        <h2 id="1-概念与简介"><a href="#1-概念与简介" class="headerlink" title="1.概念与简介"></a>1.概念与简介</h2><h3 id="简介："><a href="#简介：" class="headerlink" title="简介："></a>简介：</h3><p>MongoDB 是由C++语言编写的，是一个基于分布式文件存储的开源数据库系统。<br>在高负载的情况下，添加更多的节点，可以保证服务器性能。<br>MongoDB 旨在为WEB应用提供可扩展的高性能数据存储解决方案。<br>MongoDB 将数据存储为一个文档，数据结构由键值(key=&gt;value)对组成。MongoDB 文档类似于 JSON 对象。字段值可以包含其他文档，数组及文档数组。<br><img src="http://www.runoob.com/wp-content/uploads/2013/10/crud-annotated-document.png" alt="存储文档举例"></p>
+        <h2 id="概念与简介"><a href="#概念与简介" class="headerlink" title="概念与简介"></a>概念与简介</h2><h3 id="简介："><a href="#简介：" class="headerlink" title="简介："></a>简介：</h3><p>MongoDB 是由C++语言编写的，是一个基于分布式文件存储的开源数据库系统。<br>在高负载的情况下，添加更多的节点，可以保证服务器性能。<br>MongoDB 旨在为WEB应用提供可扩展的高性能数据存储解决方案。<br>MongoDB 将数据存储为一个文档，数据结构由键值(key=&gt;value)对组成。MongoDB 文档类似于 JSON 对象。字段值可以包含其他文档，数组及文档数组。<br><img src="http://www.runoob.com/wp-content/uploads/2013/10/crud-annotated-document.png" alt="存储文档举例"></p>
 <h3 id="概念："><a href="#概念：" class="headerlink" title="概念："></a>概念：</h3><table>
 <thead>
 <tr>
@@ -404,13 +404,13 @@
 <li>Database Master — Windows的mongodb管理工具</li>
 <li>RockMongo — 最好的PHP语言的MongoDB管理工具，轻量级, 支持多国语言.</li>
 </ul>
-<h2 id="2-安装及运行"><a href="#2-安装及运行" class="headerlink" title="2.安装及运行"></a>2.安装及运行</h2><h3 id="curl安装："><a href="#curl安装：" class="headerlink" title="curl安装："></a>curl安装：</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 进入 /usr/local</span></div><div class="line">cd <span class="regexp">/usr/</span>local</div><div class="line"></div><div class="line"><span class="comment"># 下载</span></div><div class="line">sudo curl -O https:<span class="regexp">//</span>fastdl.mongodb.org<span class="regexp">/osx/m</span>ongodb-osx-x86_64-<span class="number">3.4</span>.<span class="number">2</span>.tgz</div><div class="line"></div><div class="line"><span class="comment"># 解压</span></div><div class="line">sudo tar -zxvf mongodb-osx-x86_64-<span class="number">3.4</span>.<span class="number">2</span>.tgz</div><div class="line"></div><div class="line"><span class="comment"># 重命名为 mongodb 目录</span></div><div class="line">sudo mv mongodb-osx-x86_64-<span class="number">3.4</span>.<span class="number">2</span> mongodb</div><div class="line"></div><div class="line"><span class="comment"># 安装完成后，把 MongoDB 的二进制命令文件目录（安装目录/bin）添加到 PATH 路径中：</span></div><div class="line">export PATH=<span class="regexp">/usr/</span>local<span class="regexp">/mongodb/</span>bin:<span class="variable">$PATH</span></div></pre></td></tr></table></figure>
+<h2 id="安装及运行"><a href="#安装及运行" class="headerlink" title="安装及运行"></a>安装及运行</h2><h3 id="curl安装："><a href="#curl安装：" class="headerlink" title="curl安装："></a>curl安装：</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 进入 /usr/local</span></div><div class="line">cd <span class="regexp">/usr/</span>local</div><div class="line"></div><div class="line"><span class="comment"># 下载</span></div><div class="line">sudo curl -O https:<span class="regexp">//</span>fastdl.mongodb.org<span class="regexp">/osx/m</span>ongodb-osx-x86_64-<span class="number">3.4</span>.<span class="number">2</span>.tgz</div><div class="line"></div><div class="line"><span class="comment"># 解压</span></div><div class="line">sudo tar -zxvf mongodb-osx-x86_64-<span class="number">3.4</span>.<span class="number">2</span>.tgz</div><div class="line"></div><div class="line"><span class="comment"># 重命名为 mongodb 目录</span></div><div class="line">sudo mv mongodb-osx-x86_64-<span class="number">3.4</span>.<span class="number">2</span> mongodb</div><div class="line"></div><div class="line"><span class="comment"># 安装完成后，把 MongoDB 的二进制命令文件目录（安装目录/bin）添加到 PATH 路径中：</span></div><div class="line">export PATH=<span class="regexp">/usr/</span>local<span class="regexp">/mongodb/</span>bin:<span class="variable">$PATH</span></div></pre></td></tr></table></figure>
 <h3 id="brew安装（推荐）："><a href="#brew安装（推荐）：" class="headerlink" title="brew安装（推荐）："></a>brew安装（推荐）：</h3><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">sudo <span class="keyword">brew </span><span class="keyword">install </span>mongodb</div><div class="line"></div><div class="line"><span class="comment"># 如果需要支持TLS/SSL</span></div><div class="line">sudo <span class="keyword">brew </span><span class="keyword">install </span>mongodb --with-openssl</div><div class="line"></div><div class="line"><span class="comment">#安装最新开发版本：</span></div><div class="line">sudo <span class="keyword">brew </span><span class="keyword">install </span>mongodb --devel</div></pre></td></tr></table></figure>
 <h3 id="运行："><a href="#运行：" class="headerlink" title="运行："></a>运行：</h3><p>1.创建数据库存储目录（默认 /data/db）：</p>
 <figure class="highlight haskell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="title">sudo</span> mkdir -p /<span class="class"><span class="keyword">data</span>/db</span></div></pre></td></tr></table></figure>
 <p>2.启动mongodb</p>
 <figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">sudo mongod</div><div class="line"></div><div class="line"><span class="comment"># 如果没有创建全局路径 PATH，需要进入以下目录</span></div><div class="line"><span class="keyword">cd</span> <span class="string">/usr/local/mongodb/bin</span></div><div class="line">sudo <span class="string">./mongod</span></div><div class="line"></div><div class="line">指定db目录启动</div><div class="line">sudo mongod <span class="params">--dbpath</span></div></pre></td></tr></table></figure>
-<h2 id="3-基础操作"><a href="#3-基础操作" class="headerlink" title="3.基础操作"></a>3.基础操作</h2><h3 id="连接："><a href="#连接：" class="headerlink" title="连接："></a>连接：</h3><p>1.标准 URI 连接语法:</p>
+<h2 id="基础操作"><a href="#基础操作" class="headerlink" title="基础操作"></a>基础操作</h2><h3 id="连接："><a href="#连接：" class="headerlink" title="连接："></a>连接：</h3><p>标准 URI 连接语法:</p>
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mongodb://[<span class="string">username:password@</span>]host1[<span class="string">:port1</span>][<span class="symbol">,host2[:port2</span>],...[<span class="string">,hostN[:portN</span>]]][<span class="string">/[database</span>][<span class="symbol">?options</span>]]</div></pre></td></tr></table></figure>
 <ul>
 <li>mongodb:// 这是固定的格式，必须要指定。</li>
@@ -420,7 +420,7 @@
 <li>/database 如果指定username:password@，连接并验证登陆指定数据库。若不指定，默认打开 test 数据库。</li>
 <li>?options 是连接选项。如果不使用/database，则前面需要加上/。所有连接选项都是键值对name=value,键值对之间通过&amp;或;（分号）隔开</li>
 </ul>
-<p>2.常用的一些options</p>
+<p>常用的一些options</p>
 <table>
 <thead>
 <tr>
@@ -467,6 +467,27 @@
 </tr>
 </tbody>
 </table>
+<h3 id="数据库："><a href="#数据库：" class="headerlink" title="数据库："></a>数据库：</h3><h4 id="创建数据库："><a href="#创建数据库：" class="headerlink" title="创建数据库："></a>创建数据库：</h4><p>MongoDB 创建数据库的语法格式如下：</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 如果数据库不存在则创建数据库，否则切换到指定数据库。</span></div><div class="line"><span class="keyword">use</span> DATABASE_NAME</div></pre></td></tr></table></figure>
+<h4 id="查看所有数据库："><a href="#查看所有数据库：" class="headerlink" title="查看所有数据库："></a>查看所有数据库：</h4><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">show dbs</span></div></pre></td></tr></table></figure>
+<h4 id="删除数据库："><a href="#删除数据库：" class="headerlink" title="删除数据库："></a>删除数据库：</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">db</span><span class="selector-class">.dropDatabase</span>()</div></pre></td></tr></table></figure>
+<h4 id="查看所有集合："><a href="#查看所有集合：" class="headerlink" title="查看所有集合："></a>查看所有集合：</h4><figure class="highlight q"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">show</span> <span class="built_in">tables</span> 或 <span class="built_in">show</span> collections</div></pre></td></tr></table></figure>
+<h4 id="删除集合："><a href="#删除集合：" class="headerlink" title="删除集合："></a>删除集合：</h4><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">db<span class="selector-class">.COLLECTION_NAME</span><span class="selector-class">.drop</span>()</div></pre></td></tr></table></figure>
+<h3 id="文档："><a href="#文档：" class="headerlink" title="文档："></a>文档：</h3><h4 id="插入文档："><a href="#插入文档：" class="headerlink" title="插入文档："></a>插入文档：</h4><p>MongoDB 使用 insert() 或 save() 方法向集合中插入文档：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#如果该集合不在该数据库中， MongoDB 会自动创建该集合并插入文档。</div><div class="line">db<span class="selector-class">.COLLECTION_NAME</span><span class="selector-class">.insert</span>(document)</div></pre></td></tr></table></figure>
+<p>也可以将数据定义为一个变量：</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&gt; <span class="built_in">document</span>=(&#123;title: <span class="string">'MongoDB'</span>, </div><div class="line">    description: <span class="string">'MongoDB 是一个 Nosql 数据库'</span>,</div><div class="line">    myage:<span class="number">25</span>,</div><div class="line">    myName:<span class="string">'kevin'</span></div><div class="line">&#125;);</div><div class="line"></div><div class="line">&gt; db.COLLECTION_NAME.insert(<span class="built_in">document</span>)</div></pre></td></tr></table></figure>
+<p>也可以使用 db.COLLECTION_NAME.save(document) 命令。如果不指定 _id 字段 save() 方法类似于 insert() 方法。如果指定 _id 字段，则会更新该 _id 的数据。</p>
+<h4 id="更新文档："><a href="#更新文档：" class="headerlink" title="更新文档："></a>更新文档：</h4><p>update() 方法用于更新已存在的文档：</p>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">db.COLLECTION_NAME.update(</div><div class="line">   <span class="params">&lt;query&gt;</span>,</div><div class="line">   <span class="params">&lt;update&gt;</span>,</div><div class="line">   &#123;</div><div class="line"><span class="symbol">     upsert:</span> <span class="params">&lt;boolean&gt;</span>,</div><div class="line"><span class="symbol">     multi:</span> <span class="params">&lt;boolean&gt;</span>,</div><div class="line"><span class="symbol">     writeConcern:</span> <span class="params">&lt;document&gt;</span></div><div class="line">   &#125;</div><div class="line">)</div></pre></td></tr></table></figure>
+<p>参数说明：</p>
+<ul>
+<li>query : update的查询条件，类似sql update查询内where后面的。</li>
+<li>update : update的对象和一些更新的操作符（如$,$inc…）等，也可以理解为sql update查询内set后面的</li>
+<li>upsert : 可选，这个参数的意思是，如果不存在update的记录，是否插入objNew,true为插入，默认是false，不插入。</li>
+<li>multi : 可选，mongodb 默认是false,只更新找到的第一条记录，如果这个参数为true,就把按条件查出来多条记录全部更新。 </li>
+<li>writeConcern :可选，抛出异常的级别。</li>
+</ul>
 
       
     </div>
@@ -525,7 +546,7 @@
   
   
   <!-- Button trigger modal -->
-  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning hidden-xs" data-toggle="modal" data-target="#donateModal"><span>$</span></button>
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning hidden-xs" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
   
   
   </div>
@@ -539,28 +560,28 @@
       <div class="modal-body">
         <div class="donate-box">
           <div class="donate-tit">
-            <p>Thank you for your support, I will continue to work hard!</p>
+            <p>感谢您的支持，我会继续努力的!</p>
           </div>
           <div class="donate-payimg">
-            <img src="/images/donate/alipayimg.png" alt="Scan Qrcode" title="Scan" />
+            <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
           </div>
-          <p class="text-muted mv">Scan this qrcode</p>
+          <p class="text-muted mv">扫码打赏，你说多少就多少</p>
           <div class="donate-payselect">
             <div class="pay_item checked" data-id="alipay" data-src="/images/donate/alipayimg.png">
               <div class="radio">
                 <input type="radio" name="payment" id="input-alipay" value="alipay" checked>
-                <label class="pay_logo clickable" for="input-alipay"><img src="/images/donate/alipay.jpg" alt="alipay" /></label>
+                <label class="pay_logo clickable" for="input-alipay"><img src="/images/donate/alipay.jpg" alt="支付宝" /></label>
               </div>
             </div>
             <div class="pay_item" data-id="weipay" data-src="/images/donate/weipayimg.png">
               <div class="radio">
                 <input type="radio" name="payment" id="input-weipay" value="weipay">
-                <label class="pay_logo clickable" for="input-weipay"><img src="/images/donate/weipay.jpg" alt="weipay" /></label>
+                <label class="pay_logo clickable" for="input-weipay"><img src="/images/donate/weipay.jpg" alt="微信支付" /></label>
               </div>
             </div>
           </div>
           <div class="text-grey">
-            <p>Scan this qrcode, you can sweep yards reward oh!</p>
+            <p>扫一扫，即可进行扫码打赏哦</p>
           </div>
         </div>
       </div>
@@ -612,11 +633,11 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
-            PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
-            UNTITLED: '(Untitled)',
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
