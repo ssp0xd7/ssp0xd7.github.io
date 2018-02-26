@@ -157,7 +157,7 @@
         
         <li><a href="https://twitter.com/iwebued" target="_blank" title="Twitter" ><i class="fa fa-twitter"></i></a></li>
         
-        <li><a href="/" target="_blank" title="Facebook" ><i class="fa fa-facebook"></i></a></li>
+        <li><a href="mailto:ssp0xd7@gamil.com" target="_blank" title="Paper-Plane" ><i class="fa fa-paper-plane"></i></a></li>
         
         <li><a href="/atom.xml" target="_blank" title="Rss" ><i class="fa fa-rss"></i></a></li>
         
@@ -304,10 +304,10 @@
         <span class="post-comment"><i class="fa fa-commenting-o"></i> <a href="/2017/12/22/mongo_1/#comments" class="article-comment-link">Comments</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 1,485(words)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 2,045(words)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 6(minutes)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 8(minutes)</span>
 	
 
       </div>
@@ -449,12 +449,12 @@
 <h4 id="删除数据库："><a href="#删除数据库：" class="headerlink" title="删除数据库："></a>删除数据库：</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">db</span><span class="selector-class">.dropDatabase</span>()</div></pre></td></tr></table></figure>
 <h4 id="查看所有集合："><a href="#查看所有集合：" class="headerlink" title="查看所有集合："></a>查看所有集合：</h4><figure class="highlight q"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">show</span> <span class="built_in">tables</span> 或 <span class="built_in">show</span> collections</div></pre></td></tr></table></figure>
 <h4 id="删除集合："><a href="#删除集合：" class="headerlink" title="删除集合："></a>删除集合：</h4><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">db<span class="selector-class">.COLLECTION_NAME</span><span class="selector-class">.drop</span>()</div></pre></td></tr></table></figure>
-<h3 id="文档："><a href="#文档：" class="headerlink" title="文档："></a>文档：</h3><h4 id="插入文档："><a href="#插入文档：" class="headerlink" title="插入文档："></a>插入文档：</h4><p>MongoDB 使用 insert() 或 save() 方法向集合中插入文档：</p>
+<h3 id="文档："><a href="#文档：" class="headerlink" title="文档："></a>文档：</h3><h4 id="插入文档："><a href="#插入文档：" class="headerlink" title="插入文档："></a>插入文档：</h4><p>MongoDB 使用 <strong>insert()</strong> 或 <strong>save()</strong> 方法向集合中插入文档：</p>
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#如果该集合不在该数据库中， MongoDB 会自动创建该集合并插入文档。</div><div class="line">db<span class="selector-class">.COLLECTION_NAME</span><span class="selector-class">.insert</span>(document)</div></pre></td></tr></table></figure>
 <p>也可以将数据定义为一个变量：</p>
 <figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&gt; <span class="built_in">document</span>=(&#123;title: <span class="string">'MongoDB'</span>, </div><div class="line">    description: <span class="string">'MongoDB 是一个 Nosql 数据库'</span>,</div><div class="line">    myage:<span class="number">25</span>,</div><div class="line">    myName:<span class="string">'kevin'</span></div><div class="line">&#125;);</div><div class="line"></div><div class="line">&gt; db.COLLECTION_NAME.insert(<span class="built_in">document</span>)</div></pre></td></tr></table></figure>
-<p>也可以使用 db.COLLECTION_NAME.save(document) 命令。如果不指定 _id 字段 save() 方法类似于 insert() 方法。如果指定 _id 字段，则会更新该 _id 的数据。</p>
-<h4 id="更新文档："><a href="#更新文档：" class="headerlink" title="更新文档："></a>更新文档：</h4><p>update() 方法用于更新已存在的文档：</p>
+<p>也可以使用 db.COLLECTION_NAME.save(document) 命令。如果不指定 _id 字段 <strong>save()</strong> 方法类似于 <strong>insert()</strong> 方法。如果指定 _id 字段，则会更新该 _id 的数据。</p>
+<h4 id="更新文档："><a href="#更新文档：" class="headerlink" title="更新文档："></a>更新文档：</h4><p>使用 <strong>update()</strong> 方法 更新已存在的文档：</p>
 <figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">db.COLLECTION_NAME.update(</div><div class="line">   <span class="params">&lt;query&gt;</span>,</div><div class="line">   <span class="params">&lt;update&gt;</span>,</div><div class="line">   &#123;</div><div class="line"><span class="symbol">     upsert:</span> <span class="params">&lt;boolean&gt;</span>,</div><div class="line"><span class="symbol">     multi:</span> <span class="params">&lt;boolean&gt;</span>,</div><div class="line"><span class="symbol">     writeConcern:</span> <span class="params">&lt;document&gt;</span></div><div class="line">   &#125;</div><div class="line">)</div></pre></td></tr></table></figure>
 <p>参数说明：</p>
 <ul>
@@ -464,6 +464,84 @@
 <li>multi : 可选，mongodb 默认是false,只更新找到的第一条记录，如果这个参数为true,就把按条件查出来多条记录全部更新。 </li>
 <li>writeConcern :可选，抛出异常的级别。</li>
 </ul>
+<p>使用 <strong>save()</strong> 方法通过传入的文档替换已有文档：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">db</span><span class="selector-class">.COLLECTION_NAME</span><span class="selector-class">.save</span>(</div><div class="line">   &lt;<span class="selector-tag">document</span>&gt;,</div><div class="line">   &#123;</div><div class="line">     <span class="attribute">writeConcern</span>: &lt;document&gt;</div><div class="line">   &#125;</div><div class="line">)</div></pre></td></tr></table></figure>
+<p>参数说明：</p>
+<ul>
+<li>document : 文档数据。</li>
+<li>writeConcern :可选，抛出异常的级别。</li>
+</ul>
+<p>异常级别：</p>
+<ul>
+<li>WriteConcern.NONE:没有异常抛出</li>
+<li>WriteConcern.NORMAL:仅抛出网络错误异常，没有服务器错误异常</li>
+<li>WriteConcern.SAFE:抛出网络错误异常、服务器错误异常；并等待服务器完成写操作。</li>
+<li>WriteConcern.MAJORITY: 抛出网络错误异常、服务器错误异常；并等待一个主服务器完成写操作。</li>
+<li>WriteConcern.FSYNC_SAFE: 抛出网络错误异常、服务器错误异常；写操作等待服务器将数据刷新到磁盘。</li>
+<li>WriteConcern.JOURNAL_SAFE:抛出网络错误异常、服务器错误异常；写操作等待服务器提交到磁盘的日志文件。</li>
+<li>WriteConcern.REPLICAS_SAFE:抛出网络错误异常、服务器错误异常；等待至少2台服务器完成写操作。</li>
+</ul>
+<p>ps:3.2版本开始，MongoDB提供了以下方法更新文档：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">#向指定集合更新单个文档</div><div class="line"><span class="selector-tag">db</span><span class="selector-class">.COLLECTION_NAME</span><span class="selector-class">.updateOne</span>();</div><div class="line">#向指定集合更新多个文档</div><div class="line"><span class="selector-tag">db</span><span class="selector-class">.COLLECTION_NAME</span><span class="selector-class">.updateMany</span>();</div></pre></td></tr></table></figure>
+<h4 id="删除文档："><a href="#删除文档：" class="headerlink" title="删除文档："></a>删除文档：</h4><p>使用 <strong>remove()</strong> 方法来删除文档：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">db</span><span class="selector-class">.COLLECTION_NAME</span><span class="selector-class">.remove</span>(</div><div class="line">   &lt;<span class="selector-tag">query</span>&gt;,</div><div class="line">   &lt;<span class="selector-tag">justOne</span>&gt;</div><div class="line">)</div><div class="line"></div><div class="line"><span class="selector-id">#2</span><span class="selector-class">.6</span>版本以后对应如下语法格式</div><div class="line"><span class="selector-tag">db</span><span class="selector-class">.COLLECTION_NAME</span><span class="selector-class">.remove</span>(</div><div class="line">   &lt;<span class="selector-tag">query</span>&gt;,</div><div class="line">   &#123;</div><div class="line">     <span class="attribute">justOne</span>: &lt;boolean&gt;,</div><div class="line">     writeConcern: &lt;document&gt;</div><div class="line">   &#125;</div><div class="line">)</div></pre></td></tr></table></figure>
+<p>参数说明：</p>
+<ul>
+<li>query :（可选）删除的文档的条件。</li>
+<li>justOne : （可选）如果设为 true 或 1，则只删除一个文档。</li>
+<li>writeConcern :（可选）抛出异常的级别。</li>
+</ul>
+<p>目前官方推荐使用 <strong>deleteOne()</strong> 和 <strong>deleteMany()</strong> 方法来删除文档。</p>
+<h4 id="查询文档："><a href="#查询文档：" class="headerlink" title="查询文档："></a>查询文档：</h4><p>MongoDB使用 <strong>find()</strong> 方法来查询文档：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">db<span class="selector-class">.COLLECTION_NAME</span><span class="selector-class">.find</span>(query, projection)</div></pre></td></tr></table></figure>
+<p>具体参数：</p>
+<ul>
+<li>query ：可选，使用查询操作符指定查询条件</li>
+<li>projection ：可选，使用投影操作符指定返回的键。查询时返回文档中所有键值， 只需省略该参数即可（默认省略）。</li>
+</ul>
+<p>除此之外还有 <strong>findOne()</strong> 方法，只返回一个文档，要以易读的方式来读取数据，可以使用 <strong>pretty()</strong> 方法。</p>
+<p>如果熟悉常规的SQL数据，通过下表可以更好的理解 MongoDB 的条件语句查询：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">操作</th>
+<th style="text-align:left">格式</th>
+<th style="text-align:left">范例</th>
+<th style="text-align:left">RDBMS中的类似语句</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">等于</td>
+<td style="text-align:left">{<key>:<value>}</value></key></td>
+<td style="text-align:left">db.col.find({“by”:”菜鸟教程”}).pretty()</td>
+<td style="text-align:left">where by = ‘菜鸟教程’</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
 
       
     </div>
@@ -521,7 +599,7 @@
         
         <li><a href="https://twitter.com/iwebued" target="_blank" title="Twitter" ><i class="fa fa-twitter"></i></a></li>
         
-        <li><a href="/" target="_blank" title="Facebook" ><i class="fa fa-facebook"></i></a></li>
+        <li><a href="mailto:ssp0xd7@gamil.com" target="_blank" title="Paper-Plane" ><i class="fa fa-paper-plane"></i></a></li>
         
         <li><a href="/atom.xml" target="_blank" title="Rss" ><i class="fa fa-rss"></i></a></li>
         
@@ -529,7 +607,7 @@
 
     <div class="copyright">
     	
-        &copy; 2017 kevin_mit
+        &copy; 2018 kevin_mit
         
         <div class="publishby">
         	Theme by cofess base on pure.
