@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>Maven | kevin_mit</title>
+  <meta name="description" content="简介： Maven 是什么。Maven 是一个项目管理工具。它负责管理项目开发过程中的几乎所有的东西。  版本：maven有自己的版本定义和规则 构建：maven支持许多种的应用程序类型，对于每一种支持的应用程序类型都定义好了一组构建规则和工具集。 输出物管理：maven可以管理项目构建的产物，并将其加入到用户库中。这个功能可以用于项目组和其他部门之间的交付行为。 依赖关系：maven对依赖关系的">
+<meta name="keywords" content="WEB">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Maven">
+<meta property="og:url" content="https://ssp0xd7.github.io/2017/12/17/Maven/index.html">
+<meta property="og:site_name" content="Kevin&#39;s Blog">
+<meta property="og:description" content="简介： Maven 是什么。Maven 是一个项目管理工具。它负责管理项目开发过程中的几乎所有的东西。  版本：maven有自己的版本定义和规则 构建：maven支持许多种的应用程序类型，对于每一种支持的应用程序类型都定义好了一组构建规则和工具集。 输出物管理：maven可以管理项目构建的产物，并将其加入到用户库中。这个功能可以用于项目组和其他部门之间的交付行为。 依赖关系：maven对依赖关系的">
+<meta property="og:image" content="https://maven.apache.org/images/maven-logo-black-on-white.png">
+<meta property="og:updated_time" content="2018-03-14T16:52:41.329Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Maven">
+<meta name="twitter:description" content="简介： Maven 是什么。Maven 是一个项目管理工具。它负责管理项目开发过程中的几乎所有的东西。  版本：maven有自己的版本定义和规则 构建：maven支持许多种的应用程序类型，对于每一种支持的应用程序类型都定义好了一组构建规则和工具集。 输出物管理：maven可以管理项目构建的产物，并将其加入到用户库中。这个功能可以用于项目组和其他部门之间的交付行为。 依赖关系：maven对依赖关系的">
+<meta name="twitter:image" content="https://maven.apache.org/images/maven-logo-black-on-white.png">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://ssp0xd7.github.io/2017/12/17/Maven/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="Kevin&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  <!-- font-awesome CSS -->
+  <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  
+    
+    
+        <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+    
+
+</head>
+
+
+<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/ssp0xd7" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">KEVIN</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Love &amp; Life &amp; Code</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="fa fa-map-marker"></i> HangZhou, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="fa fa-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="Type something..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      <!-- <span class="ins-close ins-selectable"><i class="fa fa-times"></i></span> -->
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav">
+        
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <span class="menu-title">Home</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <span class="menu-title">Archives</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <span class="menu-title">Categories</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <span class="menu-title">Tags</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <span class="menu-title">Repository</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <span class="menu-title">About</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/ssp0xd7" target="_blank" title="Github" ><i class="fa fa-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/cofess" target="_blank" title="Weibo" ><i class="fa fa-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com/iwebued" target="_blank" title="Twitter" ><i class="fa fa-twitter"></i></a></li>
+        
+        <li><a href="mailto:ssp0xd7@gamil.com" target="_blank" title="Paper-Plane" ><i class="fa fa-paper-plane"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" ><i class="fa fa-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            
+            <p>您好，您是第<span id="busuanzi_value_site_uv">0</span>位访客</p>
+            
+            <div class="content">
+                <p>欢迎交流与分享经验!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tools/">Tools</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/">数据库</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-body">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NoSQL/">NoSQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WEB/">WEB</a><span class="tag-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/Java/" style="font-size: 13px;">Java</a> <a href="/tags/NoSQL/" style="font-size: 13px;">NoSQL</a> <a href="/tags/WEB/" style="font-size: 14px;">WEB</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Archive</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/数据库/">数据库</a>
+              </p>
+              <p class="item-title">
+                <a href="/2017/12/22/mongo_1/" class="title">MongoDB基础篇</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2017-12-21T16:46:21.000Z" itemprop="datePublished">2017-12-22</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Tools/">Tools</a>
+              </p>
+              <p class="item-title">
+                <a href="/2017/12/17/Maven/" class="title">Maven</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2017-12-17T15:36:00.000Z" itemprop="datePublished">2017-12-17</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Java/">Java</a>
+              </p>
+              <p class="item-title">
+                <a href="/2017/12/09/HashMap/" class="title">HashMap</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2017-12-09T09:19:32.000Z" itemprop="datePublished">2017-12-09</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Tools/">Tools</a>
+              </p>
+              <p class="item-title">
+                <a href="/2017/11/27/Tomcat/" class="title">Tomcat</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2017-11-27T14:25:19.000Z" itemprop="datePublished">2017-11-27</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Tools/">Tools</a>
+              </p>
+              <p class="item-title">
+                <a href="/2017/11/09/Ant/" class="title">Ant</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2017-11-09T06:04:00.000Z" itemprop="datePublished">2017-11-09</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<aside class="sidebar sidebar-toc collapse in" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <nav id="toc" class="article-toc">
+      <h3 class="toc-title">Catalogue</h3>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#简介："><span class="toc-number">1.</span> <span class="toc-text">简介：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Maven-是什么。"><span class="toc-number">1.1.</span> <span class="toc-text">Maven 是什么。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Maven-的生命周期"><span class="toc-number">1.2.</span> <span class="toc-text">Maven 的生命周期</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Maven-的标准工程结构"><span class="toc-number">1.3.</span> <span class="toc-text">Maven 的标准工程结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#约定优于配置"><span class="toc-number">1.4.</span> <span class="toc-text">约定优于配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Maven-的版本规范"><span class="toc-number">1.5.</span> <span class="toc-text">Maven 的版本规范</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-number">2.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Maven-依赖管理"><span class="toc-number">3.</span> <span class="toc-text">Maven 依赖管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#仓库"><span class="toc-number">3.1.</span> <span class="toc-text">仓库</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#本地仓库"><span class="toc-number">3.1.1.</span> <span class="toc-text">本地仓库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#中央仓库"><span class="toc-number">3.1.2.</span> <span class="toc-text">中央仓库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#远程仓库"><span class="toc-number">3.1.3.</span> <span class="toc-text">远程仓库</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#依赖"><span class="toc-number">3.2.</span> <span class="toc-text">依赖</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#添加依赖"><span class="toc-number">3.2.1.</span> <span class="toc-text">添加依赖</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#依赖范围"><span class="toc-number">3.2.2.</span> <span class="toc-text">依赖范围</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#依赖的传递性"><span class="toc-number">3.2.3.</span> <span class="toc-text">依赖的传递性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#依赖冲突"><span class="toc-number">3.2.4.</span> <span class="toc-text">依赖冲突</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#依赖版本的界限"><span class="toc-number">3.2.5.</span> <span class="toc-text">依赖版本的界限</span></a></li></ol></li></ol></li></ol>
+    </nav>
+  </div>
+</aside>
+
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-Maven" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Maven
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="fa fa-calendar-check-o"></i>
+	<a href="/2017/12/17/Maven/" class="article-date">
+	  <time datetime="2017-12-17T15:36:00.000Z" itemprop="datePublished">2017-12-17</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/categories/Tools/">Tools</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="fa fa-tag"></i>
+	<a class="article-tag-link" href="/tags/WEB/">WEB</a>
+  </span>
+
+
+        
+	<span class="article-read hidden-xs">
+	    <i class="fa fa-eye" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+        <span class="post-comment"><i class="fa fa-commenting-o"></i> <a href="/2017/12/17/Maven/#comments" class="article-comment-link">Comments</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 2,442(words)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 9(minutes)</span>
+	
+
+      </div>
+      
+      <div class="toggle-toc hidden-xs" data-stick-top>
+        <a class="toggle-btn" data-toggle="collapse" href="#collapseToc" aria-expanded="true" title="Catalogue" role="button">
+          <i class="text-collapsed fa fa-anchor"></i>
+          <i class="text-in fa fa-close"></i>
+        </a>
+      </div>
+      
+    </div>
+    <div class="article-entry markdown-body" itemprop="articleBody">
+      
+        <h2 id="简介："><a href="#简介：" class="headerlink" title="简介："></a>简介：</h2><p><img src="https://maven.apache.org/images/maven-logo-black-on-white.png" alt="Maven"></p>
+<h3 id="Maven-是什么。"><a href="#Maven-是什么。" class="headerlink" title="Maven 是什么。"></a>Maven 是什么。</h3><p>Maven 是一个项目管理工具。它负责管理项目开发过程中的几乎所有的东西。</p>
+<ul>
+<li><strong>版本</strong>：maven有自己的版本定义和规则</li>
+<li><strong>构建</strong>：maven支持许多种的应用程序类型，对于每一种支持的应用程序类型都定义好了一组构建规则和工具集。</li>
+<li><strong>输出物管理</strong>：maven可以管理项目构建的产物，并将其加入到用户库中。这个功能可以用于项目组和其他部门之间的交付行为。</li>
+<li><strong>依赖关系</strong>：maven对依赖关系的特性进行细致的分析和划分，避免开发过程中的依赖混乱和相互污染行为。</li>
+<li><strong>文档和构建结果</strong>：maven的site命令支持各种文档信息的发布，包括构建过程的各种输出，javadoc，产品文档等。</li>
+<li><strong>项目关系</strong>：一个大型的项目通常有几个小项目或者模块组成，用maven可以很方便地管理。</li>
+<li><strong>移植性管理</strong>：maven可以针对不同的开发场景，输出不同种类的输出结果。</li>
+</ul>
+<h3 id="Maven-的生命周期"><a href="#Maven-的生命周期" class="headerlink" title="Maven 的生命周期"></a>Maven 的生命周期</h3><p><strong>maven</strong> 把项目的构建划分为不同的生命周期(<code>lifecycle</code>)。粗略一点的话，它这个过程(phase)包括：编译、测试、打包、集成测试、验证、部署。</p>
+<p>maven中所有的执行动作(goal)都需要指明自己在这个过程中的执行位置，然后maven执行的时候，就依照过程的发展依次调用这些goal进行各种处理。</p>
+<p>这个也是maven的一个基本调度机制。一般来说，位置稍后的过程都会依赖于之前的过程。当然，maven同样提供了配置文件，可以依照用户要求，跳过某些阶段。</p>
+<h3 id="Maven-的标准工程结构"><a href="#Maven-的标准工程结构" class="headerlink" title="Maven 的标准工程结构"></a>Maven 的标准工程结构</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">|-- pom.xml                       # maven的核心配置文件</div><div class="line">|-- src</div><div class="line">|-- main</div><div class="line">|    `-- java                     # java源代码目录</div><div class="line">|    `-- resources                # 资源文件目录</div><div class="line">|-- test</div><div class="line">|    `-- java                     # 单元测试代码目录</div><div class="line">|-- target                        # 输出目录，所有的输出物都存放在这个目录下</div><div class="line">|    --classes                    # 编译后的class文件存放处</div></pre></td></tr></table></figure>
+<h3 id="约定优于配置"><a href="#约定优于配置" class="headerlink" title="约定优于配置"></a>约定优于配置</h3><p>所谓的”约定优于配置”，在maven中并不是完全不可以修改的，只是一些配置的默认值而已。但是除非必要，并不需要去修改那些约定内容。</p>
+<p>每一个阶段的任务都知道怎么正确完成自己的工作，比如compile任务就知道从src/main/java下编译所有的java文件，并把它的输出class文件存放到target/classes中。</p>
+<p>对maven来说，采用”约定优于配置”的策略可以减少修改配置的工作量，也可以降低学习成本，更重要的是，给项目引入了统一的规范。</p>
+<h3 id="Maven-的版本规范"><a href="#Maven-的版本规范" class="headerlink" title="Maven 的版本规范"></a>Maven 的版本规范</h3><p>maven使用如下几个要素来唯一定位某一个输出物：</p>
+<table>
+<thead>
+<tr>
+<th>元素名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>groupId</td>
+<td>团体、组织的标识符。团体标识的约定是，它以创建这个项目的组织名称的逆向域名(reverse domain name)开头。一般对应着JAVA的包的结构。例如org.apache。</td>
+</tr>
+<tr>
+<td>artifactId</td>
+<td>单独项目的唯一标识符。比如我们的tomcat, commons等。不要在artifactId中包含点号(.)。</td>
+</tr>
+<tr>
+<td>version</td>
+<td>一个项目的特定版本。</td>
+</tr>
+<tr>
+<td>packaging</td>
+<td>项目的类型，默认是jar，描述了项目打包后的输出。类型为jar的项目产生一个JAR文件，类型为war的项目产生一个web应用。</td>
+</tr>
+</tbody>
+</table>
+<p>maven有自己的版本规范，一般是如下定义：</p>
+<p><code>&lt;major version&gt;.&lt;minor version&gt;.&lt;incremental version&gt;-&lt;qualifier&gt;</code></p>
+<p>比如1.2.3-beta-01。</p>
+<p>要说明的是，maven自己判断版本的算法是major,minor,incremental部分用数字比较，qualifier部分用字符串比较，所以要小心 alpha-2和alpha-15的比较关系，最好用 alpha-02的格式。</p>
+<p>maven在版本管理时候可以使用几个特殊的字符串 SNAPSHOT，LATEST，RELEASE。比如”1.0-SNAPSHOT”。各个部分的含义和处理逻辑如下说明：</p>
+<ul>
+<li><strong>SNAPSHOT</strong>：这个版本一般用于开发过程中，表示不稳定的版本。</li>
+<li><strong>LATEST</strong>：指某个特定构件的最新发布，这个发布可能是一个发布版，也可能是一个snapshot版，具体看哪个时间最后。</li>
+<li><strong>RELEASE</strong>：指最后一个发布版。</li>
+</ul>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>Mac终端仍然推荐homebrew。</p>
+<p>在终端输入：brew install maven</p>
+<p>其他相关环境变量配置等（略）。</p>
+<h2 id="Maven-依赖管理"><a href="#Maven-依赖管理" class="headerlink" title="Maven 依赖管理"></a>Maven 依赖管理</h2><h3 id="仓库"><a href="#仓库" class="headerlink" title="仓库"></a>仓库</h3><p><strong>Maven</strong> 中的仓库，表示的是用来存储各个项目的依赖的一个位置。</p>
+<h4 id="本地仓库"><a href="#本地仓库" class="headerlink" title="本地仓库"></a>本地仓库</h4><p>本地仓库（Local Repository）就是一个本机的目录，这个目录被用来存储我们项目的所有依赖（插件的jar包还有一些其他的文件），简单的说，当你build一个Maven项目的时候，所有的依赖文件都会放在本地仓库里，仓库供所有项目都可以使用。</p>
+<p>默认情况下，本地仓库在.m2目录，windows下的话就是你的用户名目录下的.m2目录，想要重新指定可以通过修改 <code>MAVEN_HOME</code> 目录下的 conf/setting.xml 文件中 localRepository 实现。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">settings</span>&gt;</span></div><div class="line">  <span class="comment">&lt;!-- localRepository</span></div><div class="line"><span class="comment">   | The path to the local repository maven will use to store artifacts.</span></div><div class="line"><span class="comment">   |</span></div><div class="line"><span class="comment">   | Default: ~/.m2/repository</span></div><div class="line"><span class="comment">  &lt;localRepository&gt;/path/to/local/repo&lt;/localRepository&gt;</span></div><div class="line"><span class="comment">  --&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">localRepository</span>&gt;</span>/Users/kevin/maven/repo<span class="tag">&lt;/<span class="name">localRepository</span>&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="中央仓库"><a href="#中央仓库" class="headerlink" title="中央仓库"></a>中央仓库</h4><p>在我们构建项目时，如果依赖没有在本地仓库中找到，就会去maven的中央仓库（Central Repository）去下载。</p>
+<p>地址是：<a href="http://search.maven.org/#browse" target="_blank" rel="external">http://search.maven.org/#browse</a></p>
+<h4 id="远程仓库"><a href="#远程仓库" class="headerlink" title="远程仓库"></a>远程仓库</h4><p>在Maven中，当你在pom.xml中项目的依赖既不在本地库，也不在中央库的时候，就会报错，所以我们要在pom.xml文件中指定依赖所在的远端仓库(Remote Respository)。</p>
+<p>比如：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.testcompany.tester<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>tester<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.x<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line"><span class="comment">&lt;!-- 因为tester依赖既不在本地库，也不在中央库，所以要配置其所在的远程仓库 --&gt;</span></div><div class="line"><span class="comment">&lt;!-- 如下，随意写的 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">repositories</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">repository</span>&gt;</span></div><div class="line">    	<span class="tag">&lt;<span class="name">id</span>&gt;</span>testcompany.tester<span class="tag">&lt;/<span class="name">id</span>&gt;</span></div><div class="line">    	<span class="tag">&lt;<span class="name">url</span>&gt;</span>https://testcompany.net/content/repositories/public/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">repository</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">repositories</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>此时，Maven搜索依赖的顺序就是：</p>
+<ol>
+<li>搜索本地仓库，没有找到，就去第2步，否则退出。</li>
+<li>搜索中央仓库，没有找到，就去第3步，否则退出。</li>
+<li>去远程仓库获取，没有找到，就报错，否则退出。</li>
+</ol>
+<h3 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h3><p>Maven的依赖通过dependencis元素来配置依赖，这是Maven最强大的特性之一。它支持传递性依赖。</p>
+<h4 id="添加依赖"><a href="#添加依赖" class="headerlink" title="添加依赖"></a>添加依赖</h4><p>在Maven中需要使用在dependencies中定义一个或者多个dependency元素，来声明项目的一个或者多个依赖。<br>每个依赖元素dependency包括：</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>artifactId</td>
+<td>依赖的坐标</td>
+</tr>
+<tr>
+<td>classifier</td>
+<td>用来帮助定义构建输出的一些附属构建</td>
+</tr>
+<tr>
+<td>exclusions</td>
+<td>用来排除传递性依赖</td>
+</tr>
+<tr>
+<td>groupId</td>
+<td>依赖的坐标</td>
+</tr>
+<tr>
+<td>optional</td>
+<td>标记依赖是否可选</td>
+</tr>
+<tr>
+<td>scope</td>
+<td>依赖范围，compile、runtime、test、system、provided</td>
+</tr>
+<tr>
+<td>systemPath</td>
+<td>用来表示当前依赖在系统中的绝对路径（scope=system）</td>
+</tr>
+<tr>
+<td>type</td>
+<td>依赖的类型，即依赖项目的packaging，默认为jar</td>
+</tr>
+<tr>
+<td>version</td>
+<td>依赖的坐标</td>
+</tr>
+</tbody>
+</table>
+<p>例如：为项目添加Junit测试的jar包。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">xmlns</span> = <span class="string">" http://maven.apache.org/POM/4.0.0 "</span> <span class="attr">xmlns:xsi</span> = <span class="string">" http://www.w3.org/2001/XMLSchema-instance "</span> <span class="attr">xsi:schemaLocation</span> = <span class="string">" http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd "</span> &gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.fz<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>ShiroTest<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">packaging</span>&gt;</span>war<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.0.1-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">name</span>&gt;</span>ShiroTest Maven Webapp<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">url</span>&gt;</span> http://maven.apache.org <span class="tag">&lt;/<span class="name">url</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></div><div class="line">          <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">              <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">              <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">              <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.11<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">              <span class="comment">&lt;!--不声明依赖范围scope，默认是compile--&gt;</span></div><div class="line">              <span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></div><div class="line">          <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></div><div class="line"> <span class="tag">&lt;/<span class="name">project</span>&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="依赖范围"><a href="#依赖范围" class="headerlink" title="依赖范围"></a>依赖范围</h4><p>依赖范围即scope，主要如下：</p>
+<ul>
+<li><strong>compile</strong>：默认， 编译范围的依赖，它在编译和打包的时候都会把该依赖打包进去。</li>
+<li><strong>test</strong>： 测试依赖范围，它在编译和打包的时候都不会把该依赖打包进去。</li>
+<li><strong>provided</strong>：在编译和测试范围有效，最后生成war包时不会打包进去。</li>
+<li><strong>runtime</strong>：运行时依赖，编译的时候不依赖。</li>
+<li><strong>system</strong>：系统依赖范围。</li>
+<li><strong>import</strong>：导入依赖范围。</li>
+</ul>
+<p>依赖范围与classpath的关系：</p>
+<table>
+<thead>
+<tr>
+<th>依赖范围Scope</th>
+<th>对于编译classpath有效</th>
+<th>对于测试classpath有效</th>
+<th>对于运行时classpath有效</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>compile</td>
+<td>Y</td>
+<td>Y</td>
+<td>Y</td>
+<td>spring-core</td>
+</tr>
+<tr>
+<td>test</td>
+<td>–</td>
+<td>Y</td>
+<td>–</td>
+<td>Junit</td>
+</tr>
+<tr>
+<td>provided</td>
+<td>Y</td>
+<td>Y</td>
+<td>–</td>
+<td>servlet-api</td>
+</tr>
+<tr>
+<td>runtime</td>
+<td>–</td>
+<td>Y</td>
+<td>Y</td>
+<td>JDBC驱动实现</td>
+</tr>
+<tr>
+<td>system</td>
+<td>Y</td>
+<td>Y</td>
+<td>–</td>
+<td>本地的，Maven仓库之外的类库文件</td>
+</tr>
+</tbody>
+</table>
+<h4 id="依赖的传递性"><a href="#依赖的传递性" class="headerlink" title="依赖的传递性"></a>依赖的传递性</h4><p>在Maven中一个依赖不仅仅是一个JAR。它是一个POM文件，这个POM可能也声明了对其它构件的依赖。这些依赖的依赖叫做<strong>传递性依赖</strong><br>所谓传递性依赖就是： <strong>如果项目A依赖于项目B，项目B自身依赖于项目C，那么项目A它也依赖于项目C的依赖。</strong><br>这种依赖是基于compile这个范围进行依赖 。</p>
+<h4 id="依赖冲突"><a href="#依赖冲突" class="headerlink" title="依赖冲突"></a>依赖冲突</h4><p>因为依赖的传递性，同一个依赖可能在项目中被依赖多次，那么maven就要选择一个进行引用，又因为选择的引用版本可能和当前项目中的某些功能或者使用方式并不兼容，这就造成了依赖冲突。</p>
+<p>在maven进行依赖选择时，遵循两个规则：</p>
+<ol>
+<li>最短路径优先（如果路径的长短不一致，就选择最小路径）。</li>
+<li>加载优先（哪个依赖的顺序在前面就依赖哪个）。</li>
+</ol>
+<p>所以一般的依赖冲突解决方式为：</p>
+<ol>
+<li>通过调整dependency的顺序来解决。（加载优先）</li>
+<li>自己添加一个dependeny来解决。（最短路径）</li>
+<li>通过exclusions元素排除不想要的传递性依赖</li>
+</ol>
+<h4 id="依赖版本的界限"><a href="#依赖版本的界限" class="headerlink" title="依赖版本的界限"></a>依赖版本的界限</h4><p>在依赖某个项目的时候，你可以不必指定特定的某个版本。也可以指定一个版本范围<br><code>(,)</code> 不包含<br><code>[,]</code> 包含<br>例如：依赖一个Junit的大于等于3.8 但是小于4.0 的版本</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>[3.8,4.0)<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://ssp0xd7.github.io/2017/12/17/Maven/" title="Maven" target="_blank" rel="external">https://ssp0xd7.github.io/2017/12/17/Maven/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/ssp0xd7" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/ssp0xd7" target="_blank"><span class="text-dark">KEVIN</span><small class="ml-1x">Love &amp; Life &amp; Code</small></a></h3>
+        <div>爱唱歌、爱摄影、爱玩魔方、爱创造。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+       
+
+
+    
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2017/12/22/mongo_1/" title="MongoDB基础篇"><i class="fa fa-angle-left" aria-hidden="true"></i>&nbsp;&nbsp;Newer</a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2017/12/09/HashMap/" title="HashMap">Older&nbsp;&nbsp;<i class="fa fa-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning hidden-xs" data-toggle="modal" data-target="#donateModal"><span>$</span></button>
+  
+  
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-tit">
+            <p>Thank you for your support, I will continue to work hard!</p>
+          </div>
+          <div class="donate-payimg">
+            <img src="/images/donate/alipayimg.png" alt="Scan Qrcode" title="Scan" />
+          </div>
+          <p class="text-muted mv">Scan this qrcode</p>
+          <div class="donate-payselect">
+            <div class="pay_item checked" data-id="alipay" data-src="/images/donate/alipayimg.png">
+              <div class="radio">
+                <input type="radio" name="payment" id="input-alipay" value="alipay" checked>
+                <label class="pay_logo clickable" for="input-alipay"><img src="/images/donate/alipay.jpg" alt="alipay" /></label>
+              </div>
+            </div>
+            <div class="pay_item" data-id="weipay" data-src="/images/donate/weipayimg.png">
+              <div class="radio">
+                <input type="radio" name="payment" id="input-weipay" value="weipay">
+                <label class="pay_logo clickable" for="input-weipay"><img src="/images/donate/weipay.jpg" alt="weipay" /></label>
+              </div>
+            </div>
+          </div>
+          <div class="text-grey">
+            <p>Scan this qrcode, you can sweep yards reward oh!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/ssp0xd7" target="_blank" title="Github" ><i class="fa fa-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/cofess" target="_blank" title="Weibo" ><i class="fa fa-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com/iwebued" target="_blank" title="Twitter" ><i class="fa fa-twitter"></i></a></li>
+        
+        <li><a href="mailto:ssp0xd7@gamil.com" target="_blank" title="Paper-Plane" ><i class="fa fa-paper-plane"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" ><i class="fa fa-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        &copy; 2018 kevin_mit
+        
+        <div class="publishby">
+        	Theme by cofess base on pure.
+        </div>
+    </div>
+</footer>
+  <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script src="/js/plugin.js"></script>
+<script src="/js/application.js"></script>
+  
+    
+    
+    
+        <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+    
+    
+    
+        
+<script defer src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+    
+    
+        
+    
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  // id默认为当前页面url，如果url后带参数或锚点，gitment要重新初始化
+  // https://github.com/imsun/gitment/issues/55
+  // 解决方案：id:window.location.pathname,或者将id设置为当前页面标题
+  id: 'Maven', 
+  owner: 'ssp0xd7', // 可以是你的GitHub用户名，也可以是github id
+  repo: 'githubio-comments',
+  oauth: {
+    client_id: '433ededfd38c7605b879',
+    client_secret: '8ee504f2d4e34e3827e5e4893353259d469300e6',
+  }
+})
+gitment.render('comments')
+</script>
+
+    
+
+    
+    
+
+
+
+</body>
+</html>

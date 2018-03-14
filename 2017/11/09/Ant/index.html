@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>Ant | kevin_mit</title>
+  <meta name="description" content="简介 Apache Ant 是一个将软件编译、测试、部署等步骤联系在一起加以自动化的一个工具，大多用于Java环境中的软件开发。由Apache软件基金会所提供。 Ant是纯Java语言编写的，所以具有很好的跨平台性。 安装Ant 安装比较简单，这里不细说，本地mac环境下建议使用homebrew。 1brew install ant 安装完成后终端输入：ant，出现如下内容说明安装成功。 Buil">
+<meta name="keywords" content="WEB">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ant">
+<meta property="og:url" content="https://ssp0xd7.github.io/2017/11/09/Ant/index.html">
+<meta property="og:site_name" content="Kevin&#39;s Blog">
+<meta property="og:description" content="简介 Apache Ant 是一个将软件编译、测试、部署等步骤联系在一起加以自动化的一个工具，大多用于Java环境中的软件开发。由Apache软件基金会所提供。 Ant是纯Java语言编写的，所以具有很好的跨平台性。 安装Ant 安装比较简单，这里不细说，本地mac环境下建议使用homebrew。 1brew install ant 安装完成后终端输入：ant，出现如下内容说明安装成功。 Buil">
+<meta property="og:image" content="http://ant.apache.org/manual/images/ant_logo_large.gif">
+<meta property="og:updated_time" content="2018-03-14T08:25:59.148Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ant">
+<meta name="twitter:description" content="简介 Apache Ant 是一个将软件编译、测试、部署等步骤联系在一起加以自动化的一个工具，大多用于Java环境中的软件开发。由Apache软件基金会所提供。 Ant是纯Java语言编写的，所以具有很好的跨平台性。 安装Ant 安装比较简单，这里不细说，本地mac环境下建议使用homebrew。 1brew install ant 安装完成后终端输入：ant，出现如下内容说明安装成功。 Buil">
+<meta name="twitter:image" content="http://ant.apache.org/manual/images/ant_logo_large.gif">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://ssp0xd7.github.io/2017/11/09/Ant/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="Kevin&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  <!-- font-awesome CSS -->
+  <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  
+    
+    
+        <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+    
+
+</head>
+
+
+<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/ssp0xd7" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">KEVIN</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Love &amp; Life &amp; Code</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="fa fa-map-marker"></i> HangZhou, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="fa fa-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="Type something..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      <!-- <span class="ins-close ins-selectable"><i class="fa fa-times"></i></span> -->
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav">
+        
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <span class="menu-title">Home</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <span class="menu-title">Archives</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <span class="menu-title">Categories</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <span class="menu-title">Tags</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <span class="menu-title">Repository</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <span class="menu-title">About</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/ssp0xd7" target="_blank" title="Github" ><i class="fa fa-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/cofess" target="_blank" title="Weibo" ><i class="fa fa-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com/iwebued" target="_blank" title="Twitter" ><i class="fa fa-twitter"></i></a></li>
+        
+        <li><a href="mailto:ssp0xd7@gamil.com" target="_blank" title="Paper-Plane" ><i class="fa fa-paper-plane"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" ><i class="fa fa-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            
+            <p>您好，您是第<span id="busuanzi_value_site_uv">0</span>位访客</p>
+            
+            <div class="content">
+                <p>欢迎交流与分享经验!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tools/">Tools</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/">数据库</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-body">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NoSQL/">NoSQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WEB/">WEB</a><span class="tag-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/Java/" style="font-size: 13px;">Java</a> <a href="/tags/NoSQL/" style="font-size: 13px;">NoSQL</a> <a href="/tags/WEB/" style="font-size: 14px;">WEB</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Archive</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/数据库/">数据库</a>
+              </p>
+              <p class="item-title">
+                <a href="/2017/12/22/mongo_1/" class="title">MongoDB基础篇</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2017-12-21T16:46:21.000Z" itemprop="datePublished">2017-12-22</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Tools/">Tools</a>
+              </p>
+              <p class="item-title">
+                <a href="/2017/12/17/Maven/" class="title">Maven</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2017-12-17T15:36:00.000Z" itemprop="datePublished">2017-12-17</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Java/">Java</a>
+              </p>
+              <p class="item-title">
+                <a href="/2017/12/09/HashMap/" class="title">HashMap</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2017-12-09T09:19:32.000Z" itemprop="datePublished">2017-12-09</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Tools/">Tools</a>
+              </p>
+              <p class="item-title">
+                <a href="/2017/11/27/Tomcat/" class="title">Tomcat</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2017-11-27T14:25:19.000Z" itemprop="datePublished">2017-11-27</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Tools/">Tools</a>
+              </p>
+              <p class="item-title">
+                <a href="/2017/11/09/Ant/" class="title">Ant</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2017-11-09T06:04:00.000Z" itemprop="datePublished">2017-11-09</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<aside class="sidebar sidebar-toc collapse in" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <nav id="toc" class="article-toc">
+      <h3 class="toc-title">Catalogue</h3>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#简介"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-number">2.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关键元素"><span class="toc-number">3.</span> <span class="toc-text">关键元素</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Project-元素"><span class="toc-number">3.1.</span> <span class="toc-text">Project 元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Target-元素"><span class="toc-number">3.2.</span> <span class="toc-text">Target 元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Task-元素"><span class="toc-number">3.3.</span> <span class="toc-text">Task 元素</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#javac："><span class="toc-number">3.3.1.</span> <span class="toc-text">javac：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#java"><span class="toc-number">3.3.2.</span> <span class="toc-text">java:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#jar"><span class="toc-number">3.3.3.</span> <span class="toc-text">jar:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#echo"><span class="toc-number">3.3.4.</span> <span class="toc-text">echo:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#copy"><span class="toc-number">3.3.5.</span> <span class="toc-text">copy:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#delete"><span class="toc-number">3.3.6.</span> <span class="toc-text">delete:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#mkdir"><span class="toc-number">3.3.7.</span> <span class="toc-text">mkdir:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#move"><span class="toc-number">3.3.8.</span> <span class="toc-text">move:</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Property-元素"><span class="toc-number">3.4.</span> <span class="toc-text">Property 元素</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#build-xml实例"><span class="toc-number">4.</span> <span class="toc-text">build.xml实例</span></a></li></ol>
+    </nav>
+  </div>
+</aside>
+
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-Ant" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Ant
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="fa fa-calendar-check-o"></i>
+	<a href="/2017/11/09/Ant/" class="article-date">
+	  <time datetime="2017-11-09T06:04:00.000Z" itemprop="datePublished">2017-11-09</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/categories/Tools/">Tools</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="fa fa-tag"></i>
+	<a class="article-tag-link" href="/tags/WEB/">WEB</a>
+  </span>
+
+
+        
+	<span class="article-read hidden-xs">
+	    <i class="fa fa-eye" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+        <span class="post-comment"><i class="fa fa-commenting-o"></i> <a href="/2017/11/09/Ant/#comments" class="article-comment-link">Comments</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 1,345(words)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 6(minutes)</span>
+	
+
+      </div>
+      
+      <div class="toggle-toc hidden-xs" data-stick-top>
+        <a class="toggle-btn" data-toggle="collapse" href="#collapseToc" aria-expanded="true" title="Catalogue" role="button">
+          <i class="text-collapsed fa fa-anchor"></i>
+          <i class="text-in fa fa-close"></i>
+        </a>
+      </div>
+      
+    </div>
+    <div class="article-entry markdown-body" itemprop="articleBody">
+      
+        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p><img src="http://ant.apache.org/manual/images/ant_logo_large.gif" alt="ant"></p>
+<p><strong>Apache Ant</strong> 是一个将软件编译、测试、部署等步骤联系在一起加以自动化的一个工具，大多用于Java环境中的软件开发。由Apache软件基金会所提供。</p>
+<p>Ant是纯Java语言编写的，所以具有很好的跨平台性。</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p><strong>Ant</strong> 安装比较简单，这里不细说，本地mac环境下建议使用homebrew。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install ant</div></pre></td></tr></table></figure>
+<p>安装完成后终端输入：ant，出现如下内容说明安装成功。</p>
+<p>Buildfile: build.xml does not exist!<br>Build failed</p>
+<p>注意：因为ant默认运行build.xml文件，这个文件需要我们创建。</p>
+<p>如果不想命名为build.xml，运行时可以使用 <strong>ant -buildfile test.xml</strong> 命令指明要运行的构建文件。</p>
+<h2 id="关键元素"><a href="#关键元素" class="headerlink" title="关键元素"></a>关键元素</h2><p>Ant的构件文件都是XML格式的。每个构件文件包含一个project元素和至少一个target。</p>
+<p>target元素可以包含多个task元素。</p>
+<h3 id="Project-元素"><a href="#Project-元素" class="headerlink" title="Project 元素"></a>Project 元素</h3><p><strong>project</strong> 元素是构建文件的根元素，一个<code>project</code>元素可以有多个<code>target</code>元素，一个target元素可以有多个<code>task</code>。</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>指示 project 元素的名字。</td>
+</tr>
+<tr>
+<td>default</td>
+<td>指示这个 project 默认执行的 target。</td>
+</tr>
+<tr>
+<td>basedir</td>
+<td>指定根路径的位置。该属性没有指定时，使用Ant的构件文件的所在目录作为根目录。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Target-元素"><a href="#Target-元素" class="headerlink" title="Target 元素"></a>Target 元素</h3><p><strong>target 元素</strong>是 task 的容器，也就是 Ant 的一个基本执行单元。</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>target元素的名字</td>
+</tr>
+<tr>
+<td>depends</td>
+<td>指示依赖的 target，当前的 target 必须在依赖的 target 之后执行。</td>
+</tr>
+<tr>
+<td>description</td>
+<td>是关于 target 的简短说明。</td>
+</tr>
+<tr>
+<td>if</td>
+<td>验证指定的属性是否存在，若不存在，所在target将不会被执行。</td>
+</tr>
+<tr>
+<td>unless</td>
+<td>与if属性相反，验证指定的属性是否存在，若存在，所在target将不会被执行。</td>
+</tr>
+<tr>
+<td>extensionOf</td>
+<td>添加当前 target 到 <strong>extension-point</strong> 依赖列表。<strong>–Ant1.8.0新特性。</strong></td>
+</tr>
+<tr>
+<td>onMissingExtensionPoint</td>
+<td>当无法找到一个extension-point时，target尝试去做的动作(“fail”, “warn”, “ignore”)。<strong>–Ant1.8.2新特性。</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>extension-point </strong>与 target 元素类似，都可以指定依赖的target，但是不可以包含任何的 task。</p>
+<p>实例：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- 调用顺序</span></div><div class="line"><span class="comment">create-directory-layout -&gt; 'empty slot' -&gt; compile</span></div><div class="line"><span class="comment">--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"create-directory-layout"</span>&gt;</span></div><div class="line">   ...</div><div class="line"><span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">extension-point</span> <span class="attr">name</span>=<span class="string">"ready-to-compile"</span> <span class="attr">depends</span>=<span class="string">"create-directory-layout"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"compile"</span> <span class="attr">depends</span>=<span class="string">"ready-to-compile"</span>&gt;</span></div><div class="line">   ...</div><div class="line"><span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- 增加部分脚本 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"generate-sources"</span> <span class="attr">extensionOf</span>=<span class="string">"ready-to-compile"</span>&gt;</span></div><div class="line">   ...</div><div class="line"><span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line"><span class="comment">&lt;!-- 调用顺序</span></div><div class="line"><span class="comment">create-directory-layout -&gt; generate-sources -&gt; compile</span></div><div class="line"><span class="comment">--&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="Task-元素"><a href="#Task-元素" class="headerlink" title="Task 元素"></a>Task 元素</h3><p>task是一段可以被执行的代码。一个task可以有多个属性， 一个属性可以包含对一个 <strong>property</strong> 的引用。</p>
+<p>task的通常结构为：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">name</span> <span class="attr">attribute1</span>=<span class="string">"value1"</span> <span class="attr">attribute2</span>=<span class="string">"value2"</span> <span class="attr">...</span> /&gt;</span></div></pre></td></tr></table></figure>
+<p>其中 <code>name</code> 是task的名字，<code>attributeN</code> 是属性名，<code>valueN</code> 是属性值。</p>
+<p><strong>实例：</strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- 执行JAVA编译，编译src下的代码，并把编译生成的文件放在build目录中。 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"compile"</span> <span class="attr">depends</span>=<span class="string">"init"</span> <span class="attr">description</span>=<span class="string">"compile"</span> &gt;</span></div><div class="line">    <span class="comment">&lt;!-- Compile the java code from $&#123;src&#125; into $&#123;build&#125; --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">javac</span> <span class="attr">srcdir</span>=<span class="string">"$&#123;src&#125;"</span> <span class="attr">destdir</span>=<span class="string">"$&#123;build&#125;"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">target</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>常用的task主要有：</p>
+<h4 id="javac："><a href="#javac：" class="headerlink" title="javac："></a>javac：</h4><p>用于编译一个或者多个Java源文件，通常需要srcdir和destdir两个属性，用于指定Java源文件的位置和编译后class文件的保存位置。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">javac</span> <span class="attr">srcdir</span>=<span class="string">"$&#123;src&#125;"</span> <span class="attr">destdir</span>=<span class="string">"$&#123;build&#125;"</span> <span class="attr">classpath</span>=<span class="string">"abc.jar"</span> <span class="attr">debug</span>=<span class="string">"on"</span> <span class="attr">source</span>=<span class="string">"1.7"</span> /&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="java"><a href="#java" class="headerlink" title="java:"></a>java:</h4><p>用于运行某个Java类，通常需要classname属性，用于指定需要运行哪个类。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">java</span> <span class="attr">classname</span>=<span class="string">"test.Main"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">arg</span> <span class="attr">value</span>=<span class="string">"-h"</span> /&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">classpath</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">pathelement</span> <span class="attr">location</span>=<span class="string">"dist/test.jar"</span> /&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">classpath</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">java</span>&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="jar"><a href="#jar" class="headerlink" title="jar:"></a>jar:</h4><p>用于生成JAR包，通常需要指定destfile属性，用于指定所创建JAR包的文件名。除此之外，通常还应指定一个文件集，表明需要将哪些文件打包到JAR包里。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">jar</span> <span class="attr">jarfile</span>=<span class="string">"$&#123;dist&#125;/lib/MyProject-$&#123;DSTAMP&#125;.jar"</span> <span class="attr">basedir</span>=<span class="string">"$&#123;build&#125;"</span>/&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="echo"><a href="#echo" class="headerlink" title="echo:"></a>echo:</h4><p>输出某个字符串。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">echo</span> <span class="attr">message</span>=<span class="string">"Building to $&#123;builddir&#125;"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">echo</span>&gt;</span>You are using version $&#123;java.version&#125; of Java!<span class="tag">&lt;/<span class="name">echo</span>&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="copy"><a href="#copy" class="headerlink" title="copy:"></a>copy:</h4><p>用于复制文件或路径。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">copy</span> <span class="attr">todir</span>=<span class="string">"$&#123;builddir&#125;/srccopy"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">fileset</span> <span class="attr">dir</span>=<span class="string">"$&#123;srcdir&#125;"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">include</span> <span class="attr">name</span>=<span class="string">"**/*.java"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">fileset</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">filterset</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">filter</span> <span class="attr">token</span>=<span class="string">"VERSION"</span> <span class="attr">value</span>=<span class="string">"$&#123;app.version&#125;"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">filterset</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">copy</span>&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="delete"><a href="#delete" class="headerlink" title="delete:"></a>delete:</h4><p>用于删除文件或路径。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">delete</span> <span class="attr">file</span>=<span class="string">"/lib/ant.jar"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">delete</span> <span class="attr">dir</span>=<span class="string">"lib"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">delete</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">fileset</span> <span class="attr">dir</span>=<span class="string">"."</span> <span class="attr">includes</span>=<span class="string">"**/*.bak"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">delete</span>&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="mkdir"><a href="#mkdir" class="headerlink" title="mkdir:"></a>mkdir:</h4><p>用于创建文件夹。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">mkdir</span> <span class="attr">dir</span>=<span class="string">"$&#123;dist&#125;/lib"</span> /&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="move"><a href="#move" class="headerlink" title="move:"></a>move:</h4><p>用户移动文件和路径。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">move</span> <span class="attr">todir</span>=<span class="string">"some/new/dir"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">fileset</span> <span class="attr">dir</span>=<span class="string">"my/src/dir"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">include</span> <span class="attr">name</span>=<span class="string">"**/*.jar"</span> /&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">exclude</span> <span class="attr">name</span>=<span class="string">"**/ant.jar"</span> /&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">fileset</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">move</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="Property-元素"><a href="#Property-元素" class="headerlink" title="Property 元素"></a>Property 元素</h3><p>Property 是对参数的定义。</p>
+<p>project的属性可以通过property元素来设定，也可在Ant之外设定。若要在外部引入某文件，例如build.properties文件，可以通过如下内容将其引入：</p>
+<p><code>&lt;property file=” build.properties”/&gt;</code></p>
+<p>property元素可用作 task 的属性值。在task中是通过将属性名放在“${”和“}”之间，并放在task属性值的位置来实现的。</p>
+<p>例如 complile 例子中，使用了前面定义的 src 作为源目录。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">javac</span> <span class="attr">srcdir</span>=<span class="string">"$&#123;src&#125;"</span> <span class="attr">destdir</span>=<span class="string">"$&#123;build&#125;"</span>/&gt;</span></div></pre></td></tr></table></figure>
+<p>Ant提供了一些内置的属性，它能得到的系统属性的列表与Java文档中System.getPropertis()方法得到的属性一致，这些系统属性可参考sun网站的说明。</p>
+<h2 id="build-xml实例"><a href="#build-xml实例" class="headerlink" title="build.xml实例"></a>build.xml实例</h2><p>以下为官方提供的build.xml文件样例：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">name</span>=<span class="string">"MyProject"</span> <span class="attr">default</span>=<span class="string">"dist"</span> <span class="attr">basedir</span>=<span class="string">"."</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">description</span>&gt;</span></div><div class="line">        simple example build file</div><div class="line">    <span class="tag">&lt;/<span class="name">description</span>&gt;</span></div><div class="line">  <span class="comment">&lt;!-- set global properties for this build --&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"src"</span> <span class="attr">location</span>=<span class="string">"src"</span>/&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"build"</span> <span class="attr">location</span>=<span class="string">"build"</span>/&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"dist"</span>  <span class="attr">location</span>=<span class="string">"dist"</span>/&gt;</span></div><div class="line"></div><div class="line">  <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"init"</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- Create the time stamp --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">tstamp</span>/&gt;</span></div><div class="line">    <span class="comment">&lt;!-- Create the build directory structure used by compile --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">mkdir</span> <span class="attr">dir</span>=<span class="string">"$&#123;build&#125;"</span>/&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line"></div><div class="line">  <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"compile"</span> <span class="attr">depends</span>=<span class="string">"init"</span></span></div><div class="line"><span class="tag">        <span class="attr">description</span>=<span class="string">"compile the source "</span> &gt;</span></div><div class="line">    <span class="comment">&lt;!-- Compile the java code from $&#123;src&#125; into $&#123;build&#125; --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">javac</span> <span class="attr">srcdir</span>=<span class="string">"$&#123;src&#125;"</span> <span class="attr">destdir</span>=<span class="string">"$&#123;build&#125;"</span>/&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line"></div><div class="line">  <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"dist"</span> <span class="attr">depends</span>=<span class="string">"compile"</span></span></div><div class="line"><span class="tag">        <span class="attr">description</span>=<span class="string">"generate the distribution"</span> &gt;</span></div><div class="line">    <span class="comment">&lt;!-- Create the distribution directory --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">mkdir</span> <span class="attr">dir</span>=<span class="string">"$&#123;dist&#125;/lib"</span>/&gt;</span></div><div class="line"></div><div class="line">    <span class="comment">&lt;!-- Put everything in $&#123;build&#125; into the MyProject-$&#123;DSTAMP&#125;.jar file --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">jar</span> <span class="attr">jarfile</span>=<span class="string">"$&#123;dist&#125;/lib/MyProject-$&#123;DSTAMP&#125;.jar"</span> <span class="attr">basedir</span>=<span class="string">"$&#123;build&#125;"</span>/&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line"></div><div class="line">  <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"clean"</span></span></div><div class="line"><span class="tag">        <span class="attr">description</span>=<span class="string">"clean up"</span> &gt;</span></div><div class="line">    <span class="comment">&lt;!-- Delete the $&#123;build&#125; and $&#123;dist&#125; directory trees --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">delete</span> <span class="attr">dir</span>=<span class="string">"$&#123;build&#125;"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">delete</span> <span class="attr">dir</span>=<span class="string">"$&#123;dist&#125;"</span>/&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://ssp0xd7.github.io/2017/11/09/Ant/" title="Ant" target="_blank" rel="external">https://ssp0xd7.github.io/2017/11/09/Ant/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/ssp0xd7" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/ssp0xd7" target="_blank"><span class="text-dark">KEVIN</span><small class="ml-1x">Love &amp; Life &amp; Code</small></a></h3>
+        <div>爱唱歌、爱摄影、爱玩魔方、爱创造。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+       
+
+
+    
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2017/11/27/Tomcat/" title="Tomcat"><i class="fa fa-angle-left" aria-hidden="true"></i>&nbsp;&nbsp;Newer</a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning hidden-xs" data-toggle="modal" data-target="#donateModal"><span>$</span></button>
+  
+  
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-tit">
+            <p>Thank you for your support, I will continue to work hard!</p>
+          </div>
+          <div class="donate-payimg">
+            <img src="/images/donate/alipayimg.png" alt="Scan Qrcode" title="Scan" />
+          </div>
+          <p class="text-muted mv">Scan this qrcode</p>
+          <div class="donate-payselect">
+            <div class="pay_item checked" data-id="alipay" data-src="/images/donate/alipayimg.png">
+              <div class="radio">
+                <input type="radio" name="payment" id="input-alipay" value="alipay" checked>
+                <label class="pay_logo clickable" for="input-alipay"><img src="/images/donate/alipay.jpg" alt="alipay" /></label>
+              </div>
+            </div>
+            <div class="pay_item" data-id="weipay" data-src="/images/donate/weipayimg.png">
+              <div class="radio">
+                <input type="radio" name="payment" id="input-weipay" value="weipay">
+                <label class="pay_logo clickable" for="input-weipay"><img src="/images/donate/weipay.jpg" alt="weipay" /></label>
+              </div>
+            </div>
+          </div>
+          <div class="text-grey">
+            <p>Scan this qrcode, you can sweep yards reward oh!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/ssp0xd7" target="_blank" title="Github" ><i class="fa fa-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/cofess" target="_blank" title="Weibo" ><i class="fa fa-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com/iwebued" target="_blank" title="Twitter" ><i class="fa fa-twitter"></i></a></li>
+        
+        <li><a href="mailto:ssp0xd7@gamil.com" target="_blank" title="Paper-Plane" ><i class="fa fa-paper-plane"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" ><i class="fa fa-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        &copy; 2018 kevin_mit
+        
+        <div class="publishby">
+        	Theme by cofess base on pure.
+        </div>
+    </div>
+</footer>
+  <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script src="/js/plugin.js"></script>
+<script src="/js/application.js"></script>
+  
+    
+    
+    
+        <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+    
+    
+    
+        
+<script defer src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+    
+    
+        
+    
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  // id默认为当前页面url，如果url后带参数或锚点，gitment要重新初始化
+  // https://github.com/imsun/gitment/issues/55
+  // 解决方案：id:window.location.pathname,或者将id设置为当前页面标题
+  id: 'Ant', 
+  owner: 'ssp0xd7', // 可以是你的GitHub用户名，也可以是github id
+  repo: 'githubio-comments',
+  oauth: {
+    client_id: '433ededfd38c7605b879',
+    client_secret: '8ee504f2d4e34e3827e5e4893353259d469300e6',
+  }
+})
+gitment.render('comments')
+</script>
+
+    
+
+    
+    
+
+
+
+</body>
+</html>
