@@ -17,21 +17,21 @@
   
   
   <title>MongoDB基础篇 | kevin_mit</title>
-  <meta name="description" content="概念与简介简介： MongoDB 是由C++语言编写的，是一个基于分布式文件存储的开源数据库系统。在高负载的情况下，添加更多的节点，可以保证服务器性能。MongoDB 旨在为WEB应用提供可扩展的高性能数据存储解决方案。MongoDB 将数据存储为一个文档，数据结构由键值(key=&amp;gt;value)对组成。MongoDB 文档类似于 JSON 对象。字段值可以包含其他文档，数组及文档数组。 概念">
+  <meta name="description" content="概念与简介 简介：MongoDB 是由C++语言编写的，是一个基于分布式文件存储的开源数据库系统。在高负载的情况下，添加更多的节点，可以保证服务器性能。MongoDB 旨在为WEB应用提供可扩展的高性能数据存储解决方案。MongoDB 将数据存储为一个文档，数据结构由键值(key=&amp;gt;value)对组成。MongoDB 文档类似于 JSON 对象。字段值可以包含其他文档，数组及文档数组。 概念">
 <meta name="keywords" content="NoSQL">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MongoDB基础篇">
 <meta property="og:url" content="https://ssp0xd7.github.io/2017/12/22/mongo_1/index.html">
 <meta property="og:site_name" content="Kevin&#39;s Blog">
-<meta property="og:description" content="概念与简介简介： MongoDB 是由C++语言编写的，是一个基于分布式文件存储的开源数据库系统。在高负载的情况下，添加更多的节点，可以保证服务器性能。MongoDB 旨在为WEB应用提供可扩展的高性能数据存储解决方案。MongoDB 将数据存储为一个文档，数据结构由键值(key=&amp;gt;value)对组成。MongoDB 文档类似于 JSON 对象。字段值可以包含其他文档，数组及文档数组。 概念">
+<meta property="og:description" content="概念与简介 简介：MongoDB 是由C++语言编写的，是一个基于分布式文件存储的开源数据库系统。在高负载的情况下，添加更多的节点，可以保证服务器性能。MongoDB 旨在为WEB应用提供可扩展的高性能数据存储解决方案。MongoDB 将数据存储为一个文档，数据结构由键值(key=&amp;gt;value)对组成。MongoDB 文档类似于 JSON 对象。字段值可以包含其他文档，数组及文档数组。 概念">
 <meta property="og:image" content="https://docs.mongodb.com/images/mongodb-logo.svg">
 <meta property="og:image" content="http://www.runoob.com/wp-content/uploads/2013/10/crud-annotated-document.png">
 <meta property="og:image" content="http://www.runoob.com/wp-content/uploads/2013/12/replication.png">
 <meta property="og:image" content="http://www.runoob.com/wp-content/uploads/2013/12/sharding.png">
-<meta property="og:updated_time" content="2018-03-14T15:41:00.989Z">
+<meta property="og:updated_time" content="2018-03-15T01:35:05.887Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MongoDB基础篇">
-<meta name="twitter:description" content="概念与简介简介： MongoDB 是由C++语言编写的，是一个基于分布式文件存储的开源数据库系统。在高负载的情况下，添加更多的节点，可以保证服务器性能。MongoDB 旨在为WEB应用提供可扩展的高性能数据存储解决方案。MongoDB 将数据存储为一个文档，数据结构由键值(key=&amp;gt;value)对组成。MongoDB 文档类似于 JSON 对象。字段值可以包含其他文档，数组及文档数组。 概念">
+<meta name="twitter:description" content="概念与简介 简介：MongoDB 是由C++语言编写的，是一个基于分布式文件存储的开源数据库系统。在高负载的情况下，添加更多的节点，可以保证服务器性能。MongoDB 旨在为WEB应用提供可扩展的高性能数据存储解决方案。MongoDB 将数据存储为一个文档，数据结构由键值(key=&amp;gt;value)对组成。MongoDB 文档类似于 JSON 对象。字段值可以包含其他文档，数组及文档数组。 概念">
 <meta name="twitter:image" content="https://docs.mongodb.com/images/mongodb-logo.svg">
   <!-- Canonical links -->
   <link rel="canonical" href="https://ssp0xd7.github.io/2017/12/22/mongo_1/index.html">
@@ -402,8 +402,8 @@
     </div>
     <div class="article-entry markdown-body" itemprop="articleBody">
       
-        <h2 id="概念与简介"><a href="#概念与简介" class="headerlink" title="概念与简介"></a>概念与简介</h2><h3 id="简介："><a href="#简介：" class="headerlink" title="简介："></a>简介：</h3><p><img src="https://docs.mongodb.com/images/mongodb-logo.svg" alt="mongodb"></p>
-<p>MongoDB 是由C++语言编写的，是一个基于分布式文件存储的开源数据库系统。<br>在高负载的情况下，添加更多的节点，可以保证服务器性能。<br>MongoDB 旨在为WEB应用提供可扩展的高性能数据存储解决方案。<br>MongoDB 将数据存储为一个文档，数据结构由键值(key=&gt;value)对组成。MongoDB 文档类似于 JSON 对象。字段值可以包含其他文档，数组及文档数组。<br><img src="http://www.runoob.com/wp-content/uploads/2013/10/crud-annotated-document.png" alt="存储文档举例"></p>
+        <h2 id="概念与简介"><a href="#概念与简介" class="headerlink" title="概念与简介"></a>概念与简介</h2><p><img src="https://docs.mongodb.com/images/mongodb-logo.svg" alt="mongodb"></p>
+<h3 id="简介："><a href="#简介：" class="headerlink" title="简介："></a>简介：</h3><p>MongoDB 是由C++语言编写的，是一个基于分布式文件存储的开源数据库系统。<br>在高负载的情况下，添加更多的节点，可以保证服务器性能。<br>MongoDB 旨在为WEB应用提供可扩展的高性能数据存储解决方案。<br>MongoDB 将数据存储为一个文档，数据结构由键值(key=&gt;value)对组成。MongoDB 文档类似于 JSON 对象。字段值可以包含其他文档，数组及文档数组。<br><img src="http://www.runoob.com/wp-content/uploads/2013/10/crud-annotated-document.png" alt="存储文档举例"></p>
 <h3 id="概念："><a href="#概念：" class="headerlink" title="概念："></a>概念：</h3><table>
 <thead>
 <tr>
