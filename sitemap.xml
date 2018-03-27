@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://ssp0xd7.github.io/about/index.html</loc>
+    
+    <lastmod>2018-03-27T16:52:54.766Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://ssp0xd7.github.io/2017/12/17/Maven/</loc>
     
     <lastmod>2018-03-15T07:35:19.502Z</lastmod>
@@ -40,13 +47,6 @@
     <loc>https://ssp0xd7.github.io/tags/index.html</loc>
     
     <lastmod>2017-12-21T09:06:33.293Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://ssp0xd7.github.io/about/index.html</loc>
-    
-    <lastmod>2017-12-21T09:06:13.253Z</lastmod>
     
   </url>
   
